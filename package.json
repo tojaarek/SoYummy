@@ -1,8 +1,7 @@
 {
-  "name": "so-yummy",
-  "version": "0.1.0",
+  "name": "soyummy",
+  "version": "1.0.0",
   "private": true,
-  "homepage": "https://julitazochowska.github.io/so-yummy/",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.7",
     "@testing-library/jest-dom": "^5.16.3",
