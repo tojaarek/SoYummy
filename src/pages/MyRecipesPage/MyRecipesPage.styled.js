@@ -18,6 +18,7 @@ export const Container = styled.div`
   width: 100%;
 
   @media only screen and ${devices.tablet} {
+    max-width: 768px;
   }
 
   @media only screen and ${devices.desktop} {

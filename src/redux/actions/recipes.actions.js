@@ -52,7 +52,23 @@ export const getUserRecipes = createAsyncThunk(
       const response = await axios.get('/ownRecipes');
       return response.data.recipes.data;
     } catch (error) {
-      console.log(error, 'error');
+      console.error(error);
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteUserRecipe = createAsyncThunk(
+  'recipes/DELETE_USER_RECIPE',
+  async (recipeId, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const token = state.users.token;
+    setHeader(token);
+    try {
+      const response = await axios.delete(`/ownRecipes/${recipeId}`);
+      return response;
+    } catch (error) {
+      console.error(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

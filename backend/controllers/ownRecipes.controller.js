@@ -84,19 +84,25 @@ const deleteOwnRecipeHandler = async (req, res, next) => {
 
 const getOwnRecipesHandler = async (req, res, next) => {
   try {
-    const page = 1;
-    const limit = 4;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 4;
     const filter = { owner: req.user._id };
+
     const recipes = await getOwnRecipes(filter, page, limit);
+
+    // Pobierz całkowitą liczbę przepisów
+    const totalRecipes = await Recipe.countDocuments(filter);
+
     if (recipes === null) {
-      res.status(500).json({
+      return res.status(500).json({
         status: 'error',
         code: 500,
         message: 'Internal Server Error',
       });
     }
+
     if (recipes.length === 0) {
-      res.status(204).json({
+      return res.status(204).json({
         status: 'success',
         code: 204,
         message: 'No content',
@@ -105,12 +111,17 @@ const getOwnRecipesHandler = async (req, res, next) => {
         },
       });
     }
+
+    const totalPages = Math.ceil(totalRecipes / limit);
+
     res.status(200).json({
       status: 'success',
       code: 200,
       recipes: {
         page: page,
         perPage: limit,
+        totalPages: totalPages,
+        totalRecipes: totalRecipes,
         recipes,
       },
     });

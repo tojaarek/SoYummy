@@ -1,10 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { addRecipe, getUserRecipes } from 'redux/actions/recipes.actions';
+import {
+  addRecipe,
+  getUserRecipes,
+  deleteUserRecipe,
+} from 'redux/actions/recipes.actions';
 
 const initialState = {
   recipes: [],
   isLoading: false,
   isSuccess: false,
+  isDeleting: false,
 };
 
 const addRecipeSlice = createSlice({
@@ -30,6 +35,12 @@ const addRecipeSlice = createSlice({
     });
     builder.addCase(getUserRecipes.rejected, state => {
       state.isLoading = false;
+    });
+    builder.addCase(deleteUserRecipe.pending, state => {
+      state.isDeleting = true;
+    });
+    builder.addCase(deleteUserRecipe.fulfilled, state => {
+      state.isDeleting = false;
     });
   },
 });
