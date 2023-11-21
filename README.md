@@ -6,7 +6,7 @@
 
 ## General info
 
-PROJECT IS STILL UNDER CONSTRUCTION!
+_The project is still under construction, so some functionalities may not work properly yet.
 
 SoYummy is not only a recipes app, it is, in fact, your cookbook. You can add
 your own recipes to save them for the future.
