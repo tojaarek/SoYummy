@@ -1,6 +1,7 @@
 export const selectAddRecipeIsLoading = state => state.ownRecipes.isLoading;
 export const selectAddRecipeIsSuccess = state => state.ownRecipes.isSuccess;
 export const selectUserRecipes = state => state.ownRecipes.recipes;
+export const selectTOwnRecipesTotalPages = state => state.ownRecipes.totalPages;
 
 export const selectBreakfastRecipes = state =>
   state.recipes.categories.Breakfast;

@@ -16,7 +16,9 @@ export const Section = styled.section`
 
 export const Container = styled.div`
   width: 100%;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @media only screen and ${devices.tablet} {
     max-width: 768px;
   }

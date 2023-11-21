@@ -44,13 +44,13 @@ export const addRecipe = createAsyncThunk(
 
 export const getUserRecipes = createAsyncThunk(
   'recipes/GET_USER_RECIPES',
-  async (_, thunkAPI) => {
+  async (pageNumber, thunkAPI) => {
     const state = thunkAPI.getState();
     const token = state.users.token;
     setHeader(token);
     try {
-      const response = await axios.get('/ownRecipes');
-      return response.data.recipes.data;
+      const response = await axios.get(`/ownRecipes?page=${pageNumber}`);
+      return response.data;
     } catch (error) {
       console.error(error);
       return thunkAPI.rejectWithValue(error.message);

@@ -10,6 +10,7 @@ const initialState = {
   isLoading: false,
   isSuccess: false,
   isDeleting: false,
+  totalPages: 0,
 };
 
 const addRecipeSlice = createSlice({
@@ -27,7 +28,8 @@ const addRecipeSlice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(getUserRecipes.fulfilled, (state, action) => {
-      state.recipes = action.payload;
+      state.recipes = action.payload.recipes.data;
+      state.totalPages = action.payload.recipes.totalPages;
       state.isLoading = false;
     });
     builder.addCase(getUserRecipes.pending, state => {

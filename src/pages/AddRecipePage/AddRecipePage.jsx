@@ -6,9 +6,14 @@ import FollowUs from 'components/FollowUs/FollowUs';
 import { useSelector } from 'react-redux';
 import { selectAddRecipeIsLoading } from 'redux/selectors/recipes.selectors';
 import { Loader } from 'components/Loader/Loader';
+import { useEffect } from 'react';
 
 const AddRecipePage = () => {
   const isLoading = useSelector(selectAddRecipeIsLoading);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>

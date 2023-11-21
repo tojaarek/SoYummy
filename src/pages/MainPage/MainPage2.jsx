@@ -24,10 +24,15 @@ import ChooseYourBreakfast from 'components/ChooseYourBreakfast/ChooseYourBreakf
 import PreviewCategories from 'components/PreviewCategories/PreviewCategories';
 import { useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import { useEffect } from 'react';
 
 const MainPage2 = () => {
   const navigate = useNavigate();
   const isTablet = useMediaQuery({ minWidth: 768 });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
