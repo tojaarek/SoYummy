@@ -1,4 +1,4 @@
-import { Section, Container } from './MyRecipesPage.styled';
+import { Section, Container } from './Favorites.styled';
 import MainTitle from 'components/MainTitle/MainTitle';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -11,7 +11,7 @@ import MyRecipesList from 'components/MyRecipesList/MyRecipesList';
 import Pagination from 'components/Pagination/Pagination';
 import { Loader } from 'components/Loader/Loader';
 
-const MyRecipesPage = () => {
+const FavoritesPage = () => {
   const totalPages = useSelector(selectTOwnRecipesTotalPages);
   const isDeleting = useSelector(selectOwnRecipesIsDeleting);
   const [currentPage, setCurrentPage] = useState(1);
@@ -48,7 +48,7 @@ const MyRecipesPage = () => {
       ) : (
         <Section>
           <Container>
-            <MainTitle title="My recipes" />
+            <MainTitle title="Favorites" />
             <MyRecipesList />
             {totalPages > 1 && (
               <Pagination onPageChange={handlePageChange} page={currentPage} />
@@ -60,4 +60,4 @@ const MyRecipesPage = () => {
   );
 };
 
-export default MyRecipesPage;
+export default FavoritesPage;

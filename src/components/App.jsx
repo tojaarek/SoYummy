@@ -40,7 +40,7 @@ const authorisedRoute = (
     <Route path="/search" element={<SearchPage />} />
     <Route path="/ownRecipes/add" element={<AddRecipePage />} />
     <Route path="/ownRecipes/my" element={<MyRecipesPage />} />
-    <Route path="/favorite" element={<div>Under construction!</div>} />
+    <Route path="/favorites" element={<div>Under construction!</div>} />
     <Route path="/shopping-list" element={<div>Under construction!</div>} />
     <Route path="*" element={<ErrorPage />}></Route>
   </Route>

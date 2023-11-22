@@ -66,7 +66,7 @@ export const deleteUserRecipe = createAsyncThunk(
     setHeader(token);
     try {
       const response = await axios.delete(`/ownRecipes/${recipeId}`);
-      return response;
+      return response.data;
     } catch (error) {
       console.error(error);
       return thunkAPI.rejectWithValue(error.message);

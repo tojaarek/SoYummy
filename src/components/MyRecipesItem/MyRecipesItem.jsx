@@ -14,8 +14,10 @@ import cutText from 'const/cutText';
 import { useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import { deleteUserRecipe } from 'redux/actions/recipes.actions';
+
 const MyRecipesItem = ({ recipe }) => {
   const dispatch = useDispatch();
+
   const { _id, title, description, thumb, time } = recipe;
 
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279 });

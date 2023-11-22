@@ -131,6 +131,12 @@ export const RecipeLink = styled(Link)`
   position: absolute;
   bottom: 0;
   right: 0;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:is(:hover, :focus) {
+    background-color: #22252a;
+  }
   @media only screen and ${devices.tablet} {
     font-size: 14px;
     padding: 12px 32px;
@@ -150,6 +156,12 @@ export const Delete = styled.div`
   border-radius: 4px;
   background-color: #8baa36;
   cursor: pointer;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  &:is(:hover, :focus) {
+    background-color: #22252a;
+  }
   @media only screen and ${devices.tablet} {
     width: 38px;
     height: 38px;

@@ -47,6 +47,9 @@ export const PagesItem = styled(NavLink)`
   justify-content: center;
   align-items: center;
   text-decoration: none;
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   &:not(:last-child) {
     margin-right: 14px;
   }
