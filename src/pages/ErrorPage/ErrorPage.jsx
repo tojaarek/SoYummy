@@ -1,19 +1,25 @@
-import { ReactComponent as Image } from '../../images/error-page-image.svg';
-import css from './ErrorPage.module.css';
+import {
+  Section,
+  Container,
+  ImageWrapper,
+  Notice,
+  Description,
+  ErrorImage,
+} from './ErrorPage.styled';
 
 const ErrorPage = () => {
   return (
-    <section className={css.errorPage}>
-      <div className={css.container}>
-        <div className={css.imageBox}>
-          <Image className={css.image} />
-          <p className={css.notice}>We are sorry,</p>
-          <p className={css.description}>
+    <Section>
+      <Container>
+        <ImageWrapper>
+          <ErrorImage />
+          <Notice>We are sorry,</Notice>
+          <Description>
             but the page you were looking for can't be found...
-          </p>
-        </div>
-      </div>
-    </section>
+          </Description>
+        </ImageWrapper>
+      </Container>
+    </Section>
   );
 };
 
