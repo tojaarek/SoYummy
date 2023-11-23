@@ -1,28 +1,30 @@
-import { Link } from 'react-router-dom';
-import logo from '../../images/logo-mobile.svg';
-import css from './WelcomePage.module.css';
+import {
+  Section,
+  Container,
+  Logo,
+  Title,
+  Description,
+  Register,
+  Login,
+} from './WelcomePage.styled';
 
 const WelcomePage = () => {
   return (
-    <section className={css.welcome}>
-      <div className={css.container}>
-        <img className={css.logo} src={logo} alt="Logo" />
-        <p className={css.title}>Welcome to the app!</p>
-        <p className={css.description}>
+    <Section>
+      <Container>
+        <Logo />
+        <Title>Welcome to the app!</Title>
+        <Description>
           This app offers more than just a collection of recipes - it is
           designed to be your very own digital cookbook. You can easily save and
           retrieve your own recipes at any time.
-        </p>
-        <div className="buttons">
-          <Link className={css.register} to="register">
-            Registration
-          </Link>
-          <Link className={css.signin} to="signin">
-            Sign In
-          </Link>
+        </Description>
+        <div>
+          <Register to="register">Registration</Register>
+          <Login to="signin">Sign In</Login>
         </div>
-      </div>
-    </section>
+      </Container>
+    </Section>
   );
 };
 

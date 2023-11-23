@@ -13,7 +13,7 @@ import CategoriesPage from 'pages/CategoriesPage/CategoriesPage';
 import SearchPage from 'pages/SearchPage/SearchPage';
 import AddRecipePage from 'pages/AddRecipePage/AddRecipePage';
 import { useAuth } from 'hooks/useAuth';
-import MainPage2 from 'pages/MainPage/MainPage2';
+import MainPage from 'pages/MainPage/MainPage';
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import { Loader } from './Loader/Loader';
 import MyRecipesPage from 'pages/MyRecipesPage/MyRecipesPage';
@@ -31,7 +31,7 @@ const unathorisedRoute = (
 const authorisedRoute = (
   <Route path="/" element={<Layout />}>
     <Route index element={<Navigate replace to={'/main'} />} />
-    <Route path="/main" element={<MainPage2 />} />
+    <Route path="/main" element={<MainPage />} />
     <Route path="/recipe/:recipeId" element={<RecipesPage />} />
     <Route
       path="/categories"
