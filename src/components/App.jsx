@@ -17,6 +17,7 @@ import MainPage2 from 'pages/MainPage/MainPage2';
 import ErrorPage from 'pages/ErrorPage/ErrorPage';
 import { Loader } from './Loader/Loader';
 import MyRecipesPage from 'pages/MyRecipesPage/MyRecipesPage';
+import FavoritesPage from 'pages/FavoritesPage/FavoritesPage';
 
 const unathorisedRoute = (
   <Route path="/">
@@ -40,7 +41,7 @@ const authorisedRoute = (
     <Route path="/search" element={<SearchPage />} />
     <Route path="/ownRecipes/add" element={<AddRecipePage />} />
     <Route path="/ownRecipes/my" element={<MyRecipesPage />} />
-    <Route path="/favorites" element={<div>Under construction!</div>} />
+    <Route path="/favorites" element={<FavoritesPage />} />
     <Route path="/shopping-list" element={<div>Under construction!</div>} />
     <Route path="*" element={<ErrorPage />}></Route>
   </Route>

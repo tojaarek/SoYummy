@@ -1,6 +1,5 @@
 import RecipePageHero from 'components/Recipe/RecipeHero/RecipePageHero';
 import React, { useEffect } from 'react';
-import recipesData from '../../components/Recipe/list/soyummy.recipes.json';
 import RecipeIngredientsList from 'components/Recipe/RecipeList/RecipeList';
 import css from './RecipesPage.module.css';
 import RecipePreparation from 'components/Recipe/RecipePreparation/RecipePreparation';

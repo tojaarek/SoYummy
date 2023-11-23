@@ -90,9 +90,6 @@ const getOwnRecipesHandler = async (req, res, next) => {
 
     const recipes = await getOwnRecipes(filter, page, limit);
 
-    // Pobierz całkowitą liczbę przepisów
-    const totalRecipes = await Recipe.countDocuments(filter);
-
     if (recipes === null) {
       return res.status(500).json({
         status: 'error',

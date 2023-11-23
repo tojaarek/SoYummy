@@ -51,7 +51,11 @@ const MyRecipesPage = () => {
             <MainTitle title="My recipes" />
             <MyRecipesList />
             {totalPages > 1 && (
-              <Pagination onPageChange={handlePageChange} page={currentPage} />
+              <Pagination
+                onPageChange={handlePageChange}
+                page={currentPage}
+                totalPages={totalPages}
+              />
             )}
           </Container>
         </Section>

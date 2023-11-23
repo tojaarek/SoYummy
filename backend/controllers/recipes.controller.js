@@ -15,7 +15,7 @@ const { Recipe } = require('../models/recipes.model.js');
 
 const addRecipeHandler = async (req, res, next) => {
   try {
-    const { _id } = req.user._id;
+    const { _id } = req.user;
 
     const { title, category, instructions, description, time, ingredients } =
       req.body;
@@ -78,7 +78,7 @@ const deleteRecipeHandler = async (req, res, next) => {
       });
     }
     await deleteRecipe(req.params.recipeId);
-    res.status(200).json({
+    return res.status(200).json({
       status: 'success',
       code: 200,
       message: 'Recipe deleted',

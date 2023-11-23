@@ -1,5 +1,3 @@
-import { useSelector } from 'react-redux';
-import { selectTOwnRecipesTotalPages } from 'redux/selectors/recipes.selectors';
 import {
   Container,
   PagesList,
@@ -9,14 +7,10 @@ import {
   Button,
 } from './Pagination.styled';
 
-const Pagination = ({ onPageChange, page }) => {
-  const totalPages = useSelector(selectTOwnRecipesTotalPages);
-
+const Pagination = ({ onPageChange, page, totalPages }) => {
   const handlePreviousClick = () => {
     if (page > 1) {
       onPageChange(page - 1);
-    } else {
-      onPageChange(1);
     }
   };
 
