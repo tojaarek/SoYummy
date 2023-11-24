@@ -29,7 +29,7 @@ const Pagination = ({ onPageChange, page, totalPages }) => {
         <PagesItem
           key={i}
           to={`?page=${i}`}
-          isActive={isActive}
+          active={isActive}
           onClick={() => onPageChange(i)}
         >
           {i}

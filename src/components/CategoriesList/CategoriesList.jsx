@@ -1,39 +1,19 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import css from './CategoriesList.module.css';
-import { fetchCategoriesList } from 'redux/actions/recipes.actions';
+import { useSelector } from 'react-redux';
+import { List, Link } from './CategoriesList.styled';
 import { selectCategoriesList } from 'redux/selectors/recipes.selectors';
-import { useNavigate } from 'react-router-dom';
 
-const CategoriesList = ({ categoryName }) => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+const CategoriesList = () => {
+  const categories = useSelector(selectCategoriesList);
 
-  useEffect(() => {
-    dispatch(fetchCategoriesList());
-  }, [dispatch]);
-
-  const categoryList = useSelector(selectCategoriesList); // Corrected the variable name
-
-  const categoriesListElements = categoryList.map(
-    (
-      category // Corrected the variable name
-    ) => (
-      <nav key={category.name}>
-        <h2
-          className={css.CategoriesPage_nav_h2}
-          onClick={() => navigate('/categories/' + category.name)}
-          style={{
-            color: categoryName === category.name ? '#8BAA36' : '#BDBDBD',
-          }}
-        >
+  return (
+    <List>
+      {categories.map((category, index) => (
+        <Link key={index} to={`/categories/${category.name}`}>
           {category.name}
-        </h2>
-      </nav>
-    )
+        </Link>
+      ))}
+    </List>
   );
-
-  return <div className={css.CategoriesPage_nav}>{categoriesListElements}</div>;
 };
 
 export default CategoriesList;

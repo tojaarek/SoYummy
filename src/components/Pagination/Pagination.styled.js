@@ -36,10 +36,7 @@ export const PagesItem = styled(NavLink)`
   font-weight: 500;
   line-height: normal;
   cursor: pointer;
-  background-color: ${props => {
-    if (props.isActive) return '#ebf3d4';
-    return 'transparent';
-  }};
+  background-color: ${props => (props.active ? '#ebf3d4' : 'transparent')};
   width: 27px;
   height: 27px;
   border-radius: 50%;
