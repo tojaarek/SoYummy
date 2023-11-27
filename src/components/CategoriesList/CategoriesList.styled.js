@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom';
 import { devices } from 'const/breakpoints';
 
 export const List = styled.div`
-  padding: 10px 29px 32px 29px;
+  padding: 0 29px 32px 29px;
+  margin-bottom: 32px;
   width: 100%;
   border-bottom: 1px solid #e0e0e0;
   overflow: scroll;
@@ -14,7 +15,8 @@ export const List = styled.div`
     display: none;
   }
   @media only screen and ${devices.tablet} {
-    padding: 10px 28px 30px 28px;
+    padding: 0 28px 30px 28px;
+    margin-bottom: 50px;
   }
 `;
 

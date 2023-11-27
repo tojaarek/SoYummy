@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import css from './CategoriesGallery.module.css';
-import RecipeTile from 'components/RecipeTile/RecipeTile';
+import { List } from './CategoriesGallery.styled';
 import {
   fetchCategoryRecipes,
   fetchCategoriesList,
 } from 'redux/actions/recipes.actions';
 import { useNavigate } from 'react-router-dom';
 import { Loader } from 'components/Loader/Loader';
+import CategoriesResult from 'components/CategoriesResult/CategoriesResult';
 
 const CategoriesGalleryImage = ({ categoryName }) => {
   const dispatch = useDispatch();
@@ -43,17 +43,16 @@ const CategoriesGalleryImage = ({ categoryName }) => {
   const displayedRecipes = recipes ?? [];
 
   return (
-    <div className={css.recipesGrid}>
+    <List>
       {displayedRecipes.map(recipe => (
-        <RecipeTile
-          className={css.recipeTile}
+        <CategoriesResult
           key={recipe._id}
           recipe={recipe}
           onClick={() => navigate('/recipe/' + recipe._id)}
         />
       ))}
       {loading && <Loader />}
-    </div>
+    </List>
   );
 };
 
