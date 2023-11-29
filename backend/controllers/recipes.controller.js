@@ -240,7 +240,7 @@ const getRecipeByIdHandler = async (req, res, next) => {
 
 const getRecipesByTitleHandler = async (req, res, next) => {
   try {
-    const params = req.body.title;
+    const params = req.query.q;
     const recipes = await getRecipesByTitle(params);
     if (recipes === null) {
       res.status(404).json({
@@ -249,10 +249,17 @@ const getRecipesByTitleHandler = async (req, res, next) => {
         message: 'Not found',
       });
     }
+
+    const data = recipes.map(recipe => ({
+      id: recipe._id,
+      title: recipe.title,
+      thumb: recipe.thumb,
+    }));
+
     res.status(200).json({
       status: 'success',
       code: 200,
-      recipes,
+      data,
     });
   } catch (error) {
     console.error(error);

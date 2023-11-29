@@ -20,7 +20,7 @@ const Navigation = () => {
           <NavLink>Shopping list</NavLink>
         </Item>
         <Item>
-          <NavLink>
+          <NavLink to={'/search'}>
             <Search />
           </NavLink>
         </Item>

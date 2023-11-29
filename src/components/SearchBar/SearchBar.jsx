@@ -1,8 +1,8 @@
-import { Form, Input, Button } from './Search.styled';
+import { Form, Input, Button } from './SearchBar.styled';
 import { createSearchParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-const Search = () => {
+const SearchBar = () => {
   const navigate = useNavigate();
 
   const handleSearch = event => {
@@ -13,6 +13,7 @@ const Search = () => {
         pathname: '/search',
         search: createSearchParams({
           q: search,
+          t: 'Title',
         }).toString(),
       });
     } else {
@@ -32,4 +33,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchBar;
