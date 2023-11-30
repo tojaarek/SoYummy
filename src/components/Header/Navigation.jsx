@@ -5,22 +5,22 @@ const Navigation = () => {
     <>
       <List>
         <Item>
-          <NavLink to={'/categories'}>Categories</NavLink>
+          <NavLink to={'/main/categories'}>Categories</NavLink>
         </Item>
         <Item>
-          <NavLink to={'/ownRecipes/add'}>Add recipe</NavLink>
+          <NavLink to={'/main/ownRecipes/add'}>Add recipe</NavLink>
         </Item>
         <Item>
-          <NavLink to={'/ownRecipes/my'}>My recipes</NavLink>
+          <NavLink to={'/main/ownRecipes/my'}>My recipes</NavLink>
         </Item>
         <Item>
-          <NavLink to={'/favorites'}>Favorites</NavLink>
+          <NavLink to={'/main/favorites'}>Favorites</NavLink>
         </Item>
         <Item>
           <NavLink>Shopping list</NavLink>
         </Item>
         <Item>
-          <NavLink to={'/search'}>
+          <NavLink to={'/main/search'}>
             <Search />
           </NavLink>
         </Item>

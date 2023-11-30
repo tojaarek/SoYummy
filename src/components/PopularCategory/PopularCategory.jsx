@@ -28,11 +28,13 @@ const PopularCategory = ({ title, category }) => {
           <RecipeTile
             key={recipe._id}
             recipe={recipe}
-            onClick={() => navigate('/recipe/' + recipe._id)}
+            onClick={() => navigate('/main/recipe/' + recipe._id)}
           ></RecipeTile>
         ))}
       </List>
-      <Button onClick={() => navigate('/categories/' + title)}>See all</Button>
+      <Button onClick={() => navigate('/main/categories/' + title)}>
+        See all
+      </Button>
     </Container>
   );
 };

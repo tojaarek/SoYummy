@@ -91,14 +91,14 @@ export const Input = styled.input`
   background-color: transparent;
   border: 1px solid
     ${props => {
-      if (props.isvalid === 'true') return '#3CBC81';
-      if (props.isvalid === 'false') return '#E74A3B';
+      if (props.$isvalid === 'true') return '#3CBC81';
+      if (props.$isvalid === 'false') return '#E74A3B';
       return '#FAFAFA';
     }};
   border-radius: 6px;
   color: ${props => {
-    if (props.isvalid === 'true') return '#3CBC81';
-    if (props.isvalid === 'false') return '#E74A3B';
+    if (props.$isvalid === 'true') return '#3CBC81';
+    if (props.$isvalid === 'false') return '#E74A3B';
     return '#FAFAFA';
   }};
   font-size: 14px;
@@ -107,8 +107,8 @@ export const Input = styled.input`
   letter-spacing: -0.28px;
   outline: none;
   opacity: ${props => {
-    if (props.isvalid === 'true') return '1';
-    if (props.isvalid === 'false') return '1';
+    if (props.$isvalid === 'true') return '1';
+    if (props.$isvalid === 'false') return '1';
     return '0.8';
   }};
   transition: 250ms cubic-bezier(0.17, 0.67, 0.83, 0.67);
@@ -116,8 +116,8 @@ export const Input = styled.input`
 
   &::placeholder {
     color: ${props => {
-      if (props.isvalid === 'true') return '#3CBC81';
-      if (props.isvalid === 'false') return '#E74A3B';
+      if (props.$isvalid === 'true') return '#3CBC81';
+      if (props.$isvalid === 'false') return '#E74A3B';
       return '#FAFAFA';
     }};
     font-size: 14px;
@@ -132,8 +132,8 @@ export const Input = styled.input`
   &:is(:focus) {
     border: 1px solid
       ${props => {
-        if (props.isvalid === 'true') return '#3CBC81';
-        if (props.isvalid === 'false') return '#E74A3B';
+        if (props.$isvalid === 'true') return '#3CBC81';
+        if (props.$isvalid === 'false') return '#E74A3B';
         return '#FFFFFF';
       }};
     opacity: 1;
@@ -162,15 +162,15 @@ export const StyledUserIcon = styled(UserIcon)`
   top: 50%;
   transform: translateY(-50%);
   opacity: ${props => {
-    if (props.isvalid === 'true') return '1';
-    if (props.isvalid === 'false') return '1';
+    if (props.$isvalid === 'true') return '1';
+    if (props.$isvalid === 'false') return '1';
     return '0.8';
   }};
 
   path {
     stroke: ${props => {
-      if (props.isvalid === 'true') return '#3CBC81';
-      if (props.isvalid === 'false') return '#E74A3B';
+      if (props.$isvalid === 'true') return '#3CBC81';
+      if (props.$isvalid === 'false') return '#E74A3B';
       return '#FAFAFA';
     }};
   }
@@ -190,15 +190,15 @@ export const StyledEmailIcon = styled(EmailIcon)`
   top: 50%;
   transform: translateY(-50%);
   opacity: ${props => {
-    if (props.isvalid === 'true') return '1';
-    if (props.isvalid === 'false') return '1';
+    if (props.$isvalid === 'true') return '1';
+    if (props.$isvalid === 'false') return '1';
     return '0.8';
   }};
 
   path {
     stroke: ${props => {
-      if (props.isvalid === 'true') return '#3CBC81';
-      if (props.isvalid === 'false') return '#E74A3B';
+      if (props.$isvalid === 'true') return '#3CBC81';
+      if (props.$isvalid === 'false') return '#E74A3B';
       return '#FAFAFA';
     }};
   }
@@ -218,15 +218,15 @@ export const StyledPasswordIcon = styled(PasswordIcon)`
   top: 50%;
   transform: translateY(-50%);
   opacity: ${props => {
-    if (props.isvalid === 'true') return '1';
-    if (props.isvalid === 'false') return '1';
+    if (props.$isvalid === 'true') return '1';
+    if (props.$isvalid === 'false') return '1';
     return '0.8';
   }};
 
   path {
     stroke: ${props => {
-      if (props.isvalid === 'true') return '#3CBC81';
-      if (props.isvalid === 'false') return '#E74A3B';
+      if (props.$isvalid === 'true') return '#3CBC81';
+      if (props.$isvalid === 'false') return '#E74A3B';
       return '#FAFAFA';
     }};
   }
@@ -245,8 +245,8 @@ export const Notice = styled.p`
   margin: 0;
   color: #e74a3b;
   display: ${props => {
-    if (props.isvalid === 'true') return 'none';
-    if (props.isvalid === 'false') return 'block';
+    if (props.$isvalid === 'true') return 'none';
+    if (props.$isvalid === 'false') return 'block';
     return 'none';
   }};
 

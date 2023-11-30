@@ -2,8 +2,16 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { selectUserToken } from 'redux/selectors/users.selectors';
 import axios from 'axios';
-import css from './PopularRecipe.module.css';
-import { Link } from 'react-router-dom';
+import {
+  Container,
+  Title,
+  List,
+  Item,
+  Image,
+  Name,
+  Description,
+  Hyperlink,
+} from './PopularRecipe.styled';
 
 const PopularRecipe = () => {
   const [recipes, setRecipes] = useState([]);
@@ -35,30 +43,26 @@ const PopularRecipe = () => {
   }, [isFetch, userToken]);
 
   return (
-    <div className={css.container}>
-      <p className={css.title}>Popular recipe</p>
+    <Container>
+      <Title>Popular recipe</Title>
       {recipes ? (
-        <ul className={css.list}>
+        <List>
           {recipes.map(recipe => (
-            <li key={recipe.id} className={css.item}>
-              <Link to={'/recipe/' + recipe.id}>
-                <img
-                  src={recipe.thumb}
-                  alt="Recipe preview"
-                  className={css.img}
-                ></img>
+            <Item key={recipe.id}>
+              <Hyperlink to={'/main/recipe/' + recipe.id}>
+                <Image src={recipe.thumb} alt="Recipe preview"></Image>
                 <div>
-                  <p className={css.name}>{recipe.title}</p>
-                  <p className={css.description}>{recipe.description}</p>
+                  <Name>{recipe.title}</Name>
+                  <Description>{recipe.description}</Description>
                 </div>
-              </Link>
-            </li>
+              </Hyperlink>
+            </Item>
           ))}
-        </ul>
+        </List>
       ) : (
         <p>Loading...</p>
       )}
-    </div>
+    </Container>
   );
 };
 

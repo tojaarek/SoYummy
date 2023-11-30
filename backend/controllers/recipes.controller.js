@@ -108,13 +108,10 @@ const getOwnRecipesHandler = async (req, res, next) => {
     }
 
     if (recipes.length === 0) {
-      return res.status(204).json({
-        status: 'success',
-        code: 204,
-        message: 'No content',
-        recipes: {
-          recipes,
-        },
+      return res.status(404).json({
+        status: 'Not Found',
+        code: 404,
+        message: 'No recipes found',
       });
     }
 

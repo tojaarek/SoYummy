@@ -45,7 +45,7 @@ const MyRecipesItem = ({ recipe }) => {
         </TitleWrapper>
         <Description>{cuttedDescription}</Description>
         <Time>{time}</Time>
-        <RecipeLink to={`/recipe/${_id}`}>See recipe</RecipeLink>
+        <RecipeLink to={`/main/recipe/${_id}`}>See recipe</RecipeLink>
       </Wrapper>
     </Item>
   );

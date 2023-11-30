@@ -10,7 +10,7 @@ const Search = () => {
     const search = event.currentTarget.elements.search.value;
     if (search) {
       navigate({
-        pathname: '/search',
+        pathname: '/main/search',
         search: createSearchParams({
           q: search,
         }).toString(),

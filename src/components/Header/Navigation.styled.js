@@ -28,7 +28,7 @@ export const NavLink = styled(Link)`
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-  &:is(:hover, :focus) {
+  &:is(:hover, :focus-visible) {
     color: #8baa36;
   }
 `;

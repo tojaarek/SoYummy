@@ -1,6 +1,7 @@
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'http://localhost:3030';
 
@@ -16,8 +17,21 @@ export const addToFavorites = createAsyncThunk(
     setHeader(token);
     try {
       const response = await axios.post('/favorites/add', body);
+      if (response.data) {
+        toast.error(
+          'The recipe has been successfully added to your favorites',
+          {
+            position: toast.POSITION.TOP_CENTER,
+          }
+        );
+      }
       return response.data;
     } catch (error) {
+      if (error) {
+        toast.error('Something went wrong. Please try again.', {
+          position: toast.POSITION.TOP_CENTER,
+        });
+      }
       console.log(error, 'error');
       return thunkAPI.rejectWithValue(error.message);
     }

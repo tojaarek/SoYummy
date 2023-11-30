@@ -87,7 +87,7 @@ const MainPage2 = () => {
       </SectionHero>
       <SectionCategories>
         <PreviewCategories />
-        <Button onClick={() => navigate('/categories')}>
+        <Button onClick={() => navigate('/main/categories')}>
           Other categories
         </Button>
       </SectionCategories>

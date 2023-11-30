@@ -8,7 +8,7 @@ const CategoriesList = () => {
   return (
     <List>
       {categories.map((category, index) => (
-        <Link key={index} to={`/categories/${category.name}`}>
+        <Link key={index} to={`/main/categories/${category.name}`}>
           {category.name}
         </Link>
       ))}

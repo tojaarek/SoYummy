@@ -9,7 +9,6 @@ import imageDesktop2x from '../../images/signin-image-desktop@2x.png';
 import imageDesktop3x from '../../images/signin-image-desktop@3x.png';
 import SigninForm from 'components/SigninForm/SigninForm';
 import { Section, Container } from './SigninPage.styled';
-import { ToastContainer } from 'react-toastify';
 
 const SigninPage = () => {
   return (
@@ -23,7 +22,6 @@ const SigninPage = () => {
         />
         <SigninForm />
       </Container>
-      <ToastContainer autoClose={4000} />
     </Section>
   );
 };

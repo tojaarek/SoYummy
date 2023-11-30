@@ -8,7 +8,6 @@ import imageDesktop from '../../images/signin-image-desktop.png';
 import imageDesktop2x from '../../images/signin-image-desktop@2x.png';
 import imageDesktop3x from '../../images/signin-image-desktop@3x.png';
 import RegisterForm from 'components/RegisterForm/RegisterForm';
-import { ToastContainer } from 'react-toastify';
 import { Section, Container } from './RegisterPage.styled';
 
 const RegisterPage = () => {
@@ -23,7 +22,6 @@ const RegisterPage = () => {
         />
         <RegisterForm />
       </Container>
-      <ToastContainer autoClose={4000} />
     </Section>
   );
 };

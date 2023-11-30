@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import Pagination from 'components/Pagination/Pagination';
 import { Loader } from 'components/Loader/Loader';
 import {
+  selectFavorites,
   selectFavoritesIsDeleting,
   selectFavoritesTotalPages,
 } from 'redux/selectors/favorites.selectors';

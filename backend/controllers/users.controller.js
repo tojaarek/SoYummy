@@ -8,17 +8,20 @@ const { generateToken } = require('../service/auth.service.js');
 const registerHandler = async (req, res, next) => {
   try {
     const { name, email, password } = req.body;
-    const userPayload = {
-      email: email,
-      name: name,
-    };
-    const token = generateToken(userPayload);
-    await createUser({
+    const createdUser = await createUser({
       name,
       email,
       password,
-      token,
     });
+
+    const userPayload = {
+      _id: createdUser._id,
+      email: createdUser.email,
+      name: createdUser.name,
+    };
+
+    const token = generateToken(userPayload);
+    await updateUser(createdUser._id, { token });
 
     return res.status(201).json({
       status: 'success',

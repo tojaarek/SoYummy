@@ -104,10 +104,10 @@ const RegisterForm = () => {
                 name="name"
                 required
                 onChange={verifyName}
-                isvalid={isNameValid}
+                $isvalid={isNameValid}
               />
-              <StyledUserIcon isvalid={isNameValid} />
-              <Notice isvalid={isNameValid}>{nameNotice}</Notice>
+              <StyledUserIcon $isvalid={isNameValid} />
+              <Notice $isvalid={isNameValid}>{nameNotice}</Notice>
             </InputWrapper>
             <InputWrapper>
               <Input
@@ -116,10 +116,10 @@ const RegisterForm = () => {
                 name="email"
                 required
                 onChange={verifyEmail}
-                isvalid={isEmailValid}
+                $isvalid={isEmailValid}
               ></Input>
-              <StyledEmailIcon isvalid={isEmailValid} />
-              <Notice isvalid={isEmailValid}>{emailNotice}</Notice>
+              <StyledEmailIcon $isvalid={isEmailValid} />
+              <Notice $isvalid={isEmailValid}>{emailNotice}</Notice>
             </InputWrapper>
             <InputWrapper>
               <Input
@@ -128,10 +128,10 @@ const RegisterForm = () => {
                 name="password"
                 required
                 onChange={verifyPassword}
-                isvalid={isPasswordValid}
+                $isvalid={isPasswordValid}
               ></Input>
-              <StyledPasswordIcon isvalid={isPasswordValid} />
-              <Notice isvalid={isPasswordValid}>{passwordNotice}</Notice>
+              <StyledPasswordIcon $isvalid={isPasswordValid} />
+              <Notice $isvalid={isPasswordValid}>{passwordNotice}</Notice>
             </InputWrapper>
           </ul>
         </div>

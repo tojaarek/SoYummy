@@ -45,7 +45,7 @@ const FavoritesItem = ({ recipe }) => {
         </TitleWrapper>
         <Description>{cuttedDescription}</Description>
         <Time>{time}</Time>
-        <RecipeLink to={`/recipe/${id}`}>See recipe</RecipeLink>
+        <RecipeLink to={`/main/recipe/${id}`}>See recipe</RecipeLink>
       </Wrapper>
     </Item>
   );

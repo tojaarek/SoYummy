@@ -12,17 +12,12 @@ export const RecipesPage = () => {
   const dispatch = useDispatch();
   const { recipeId } = useParams();
 
-  // // useParams();
-  // console.log(recipeId);
-
-  //const recipe = recipesData.filter(recipe => recipe._id.$oid === recipeId);
   useEffect(() => {
+    window.scrollTo(0, 0);
     dispatch(fetchRecipeById(recipeId));
   }, [recipeId, dispatch]);
 
   const recipe = useSelector(selectRecipe);
-
-  // console.log(recipe);
 
   return (
     <div className={css.General}>

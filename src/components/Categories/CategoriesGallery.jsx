@@ -48,7 +48,7 @@ const CategoriesGalleryImage = ({ categoryName }) => {
         <CategoriesResult
           key={recipe._id}
           recipe={recipe}
-          onClick={() => navigate('/recipe/' + recipe._id)}
+          onClick={() => navigate('/main/recipe/' + recipe._id)}
         />
       ))}
       {loading && <Loader />}

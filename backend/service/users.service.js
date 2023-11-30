@@ -1,9 +1,13 @@
 const { User } = require('../models/users.model.js');
+const { ShoppingList } = require('../models/shoppingList.model.js');
 const { UnknownDatabaseError } = require('../db.js');
 
 const createUser = async data => {
   try {
-    return await User.create(data);
+    const createdUser = await User.create(data);
+    await ShoppingList.create({ owner: createdUser._id });
+
+    return createdUser;
   } catch (error) {
     if (error.code === 11000) {
       throw new Error('Conflict');
