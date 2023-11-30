@@ -16,8 +16,9 @@ const favoritesSlice = createSlice({
   name: 'favorites',
   initialState,
   extraReducers: builder => {
-    builder.addCase(addToFavorites.fulfilled, state => {
+    builder.addCase(addToFavorites.fulfilled, (state, action) => {
       state.isLoading = false;
+      state.recipes.unshift(action.payload.data);
     });
     builder.addCase(addToFavorites.pending, state => {
       state.isLoading = true;
@@ -36,8 +37,12 @@ const favoritesSlice = createSlice({
     builder.addCase(getUserFavorites.rejected, state => {
       state.isLoading = false;
     });
-    builder.addCase(deleteFromFavorites.fulfilled, state => {
+    builder.addCase(deleteFromFavorites.fulfilled, (state, action) => {
       state.isDeleting = false;
+      const index = state.recipes.findIndex(
+        recipe => recipe.id === action.payload.id
+      );
+      state.recipes.splice(index, 1);
     });
     builder.addCase(deleteFromFavorites.pending, state => {
       state.isDeleting = true;

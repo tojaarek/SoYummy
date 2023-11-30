@@ -1,13 +1,11 @@
-import { Button } from 'pages/MainPage/MainPage.styled';
 import { Info, Item } from './NoResults.styled';
-import { useNavigate } from 'react-router-dom';
 
-const NoResults = ({ contents, buttonText, goTo }) => {
-  const navigate = useNavigate();
+const NoResults = () => {
   return (
     <Item>
-      <Info>{contents}</Info>
-      <Button onClick={() => navigate(`${goTo}`)}>{buttonText}</Button>
+      <Info>
+        Try looking for something else <span>¯\_(ツ)_/¯</span>
+      </Info>
     </Item>
   );
 };

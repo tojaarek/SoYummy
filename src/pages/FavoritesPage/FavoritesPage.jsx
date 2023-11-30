@@ -15,6 +15,7 @@ import FavoritesList from 'components/FavoritesList/FavoritesList';
 const FavoritesPage = () => {
   const totalPages = useSelector(selectFavoritesTotalPages);
   const isDeleting = useSelector(selectFavoritesIsDeleting);
+  const favorites = useSelector(selectFavorites);
   const [currentPage, setCurrentPage] = useState(1);
   const dispatch = useDispatch();
 
@@ -40,7 +41,7 @@ const FavoritesPage = () => {
     } else {
       dispatch(getUserFavorites(currentPage));
     }
-  }, [dispatch, currentPage, totalPages, isDeleting]);
+  }, [dispatch, currentPage, totalPages]);
 
   return (
     <>

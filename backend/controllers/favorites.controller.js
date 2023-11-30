@@ -58,6 +58,7 @@ const addToFavoritesHandler = async (req, res, next) => {
         status: 'OK',
         code: 200,
         message: 'Recipe added to favorites',
+        data,
       });
     }
   } catch (error) {

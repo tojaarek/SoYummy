@@ -17,7 +17,7 @@ const Search = () => {
       });
     } else {
       toast.error('Please type something into the search box!', {
-        position: toast.POSITION.TOP_CENTER,
+        position: toast.POSITION.TOP_RIGHT,
       });
     }
   };

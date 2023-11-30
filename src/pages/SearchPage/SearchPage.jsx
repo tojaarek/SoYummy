@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { Section, Container } from './SearchPage.styled';
 import MainTitle from 'components/MainTitle/MainTitle';
-import SearchBar from 'components/SearchBar/SearchBar';
 import Search from 'components/Search/Search';
 import { useSelector } from 'react-redux';
 import { selectUserToken } from 'redux/selectors/users.selectors';
@@ -13,7 +12,7 @@ export const SearchPage = () => {
   const [searchParams] = useSearchParams();
   const query = searchParams.get('q');
   const userToken = useSelector(selectUserToken);
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState(null);
 
   const getResults = async () => {
     try {
@@ -40,7 +39,7 @@ export const SearchPage = () => {
     if (query) {
       getResults();
     } else {
-      setResults([]);
+      setResults(null);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query]);

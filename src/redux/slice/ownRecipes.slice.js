@@ -17,9 +17,10 @@ const addRecipeSlice = createSlice({
   name: 'ownRecipes',
   initialState,
   extraReducers: builder => {
-    builder.addCase(addRecipe.fulfilled, state => {
+    builder.addCase(addRecipe.fulfilled, (state, action) => {
       state.isSuccess = true;
       state.isLoading = false;
+      state.recipes.unshift(action.payload.recipe.newRecipe);
     });
     builder.addCase(addRecipe.pending, state => {
       state.isLoading = true;
@@ -41,8 +42,12 @@ const addRecipeSlice = createSlice({
     builder.addCase(deleteUserRecipe.pending, state => {
       state.isDeleting = true;
     });
-    builder.addCase(deleteUserRecipe.fulfilled, state => {
+    builder.addCase(deleteUserRecipe.fulfilled, (state, action) => {
       state.isDeleting = false;
+      const index = state.recipes.findIndex(
+        recipe => recipe.id === action.payload.id
+      );
+      state.recipes.splice(index, 1);
     });
   },
 });

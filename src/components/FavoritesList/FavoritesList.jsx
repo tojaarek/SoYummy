@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import { selectFavorites } from 'redux/selectors/favorites.selectors';
 import { List } from './FavoritesList.styled';
 import FavoritesItem from 'components/FavoritesItem/FavoritesItem';
-import NoResults from 'components/NoResults/NoResults';
+import NoResults from 'components/NoContent/NoContent';
 
 const FavoritesList = () => {
   const recipes = useSelector(selectFavorites);

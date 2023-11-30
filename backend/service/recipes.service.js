@@ -49,7 +49,10 @@ const deleteRecipe = async recipeId => {
 
 const getRecipesByTitle = async title => {
   try {
-    const data = await Recipe.find({ title: { $regex: title, $options: 'i' } });
+    const data = await Recipe.find({
+      title: { $regex: title, $options: 'i' },
+      owner: { $exists: false },
+    });
     return data;
   } catch (error) {
     console.error(error);

@@ -18,6 +18,7 @@ export const addToFavorites = createAsyncThunk(
     try {
       const response = await axios.post('/favorites/add', body);
       if (response.data) {
+        console.log(response.data);
         toast.error(
           'The recipe has been successfully added to your favorites',
           {
