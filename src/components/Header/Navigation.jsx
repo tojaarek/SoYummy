@@ -17,7 +17,7 @@ const Navigation = () => {
           <NavLink to={'/main/favorites'}>Favorites</NavLink>
         </Item>
         <Item>
-          <NavLink>Shopping list</NavLink>
+          <NavLink to={'/main/shopping-list'}>Shopping list</NavLink>
         </Item>
         <Item>
           <NavLink to={'/main/search'}>

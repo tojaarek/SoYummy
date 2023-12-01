@@ -3,18 +3,19 @@ const { UnknownDatabaseError } = require('../db.js');
 
 const getShoppingList = async id => {
   try {
-    const ingredients = await ShoppingList.find(id);
-    return ingredients;
+    const list = await ShoppingList.findOne(id);
+    return list;
   } catch (error) {
     console.error(error);
     throw new UnknownDatabaseError();
   }
 };
 
-const addToShoppingList = async body => {
+const addToShoppingList = async (id, body) => {
   try {
-    const newList = new ShoppingList(body);
-    const saveList = await newList.save();
+    const list = await ShoppingList.findOne(id);
+    list.ingredients.push(body);
+    const saveList = await list.save();
     return saveList;
   } catch (error) {
     console.error(error);

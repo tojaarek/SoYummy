@@ -14,6 +14,7 @@ import { usersReducer } from '../redux/slice/users.slice';
 import { addRecipeReducer } from './slice/ownRecipes.slice';
 import { recipesReducer } from './slice/recipes.slice';
 import { favoritesReducer } from './slice/favorites.slice';
+import { shoppingListReducer } from './slice/shoppingList.slice';
 
 const persistConfig = {
   key: 'auth',
@@ -27,6 +28,7 @@ export const store = configureStore({
     recipes: recipesReducer,
     ownRecipes: addRecipeReducer,
     favorites: favoritesReducer,
+    shoppingList: shoppingListReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

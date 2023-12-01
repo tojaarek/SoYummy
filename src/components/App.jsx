@@ -19,6 +19,7 @@ import MyRecipesPage from 'pages/MyRecipesPage/MyRecipesPage';
 import FavoritesPage from 'pages/FavoritesPage/FavoritesPage';
 import { RestrictedRoute } from './Routes/RestrictedRoute';
 import { PrivateRoute } from './Routes/PrivateRoute';
+import ShoppingListPage from 'pages/ShoppingListPage/ShoppingListPage';
 
 export const App = () => {
   const dispatch = useDispatch();
@@ -77,6 +78,15 @@ export const App = () => {
           path="/main/favorites"
           element={
             <PrivateRoute redirectTo="/signin" component={<FavoritesPage />} />
+          }
+        />
+        <Route
+          path="/main/shopping-list"
+          element={
+            <PrivateRoute
+              redirectTo="/signin"
+              component={<ShoppingListPage />}
+            />
           }
         />
         <Route path="*" element={<ErrorPage />} />

@@ -8,6 +8,7 @@ const ingredientsRouter = require('./routes/ingredients.routes.js');
 const ownRecipesRouter = require('./routes/ownRecipes.routes.js');
 const recipesRouter = require('./routes/recipes.routes.js');
 const favoritesRouter = require('./routes/favorites.routes.js');
+const shoppingListRouter = require('./routes/shoppingList.routes.js');
 const app = express();
 
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short';
@@ -22,6 +23,7 @@ app.use('/ingredients', ingredientsRouter);
 app.use('/ownRecipes', ownRecipesRouter);
 app.use('/recipes', recipesRouter);
 app.use('/favorites', favoritesRouter);
+app.use('/shopping-list', shoppingListRouter);
 
 app.use((req, res) => {
   res.status(404).json({ message: 'Not found' });

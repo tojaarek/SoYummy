@@ -1,16 +1,20 @@
-const { getUser } = require('../service/users.service.js');
-const { ShoppingList } = require('../models/shoppingList.model.js');
+const {
+  getShoppingList,
+  addToShoppingList,
+} = require('../service/shoppingList.service.js');
 
 const addIngredientHandler = async (req, res, next) => {
   try {
-    const { _id } = req.user;
+    const userId = { owner: req.user._id };
+    const { _id, title, thumb, measure } = req.body;
 
-    const { title, category, instructions, description, time, ingredients } =
-      req.body;
-    const currentUser = await getUser({ _id: _id });
-
-    const newRecipe = await addRecipe(recipeData);
-    if (!newRecipe) {
+    const newIngredient = await addToShoppingList(userId, {
+      _id,
+      title,
+      thumb,
+      measure,
+    });
+    if (!newIngredient) {
       res.status(500).json({
         status: 'error',
         code: 500,
@@ -19,11 +23,41 @@ const addIngredientHandler = async (req, res, next) => {
     }
     res.status(201).json({
       status: 'success',
-      code: 201,
-      message: 'Created',
-      recipe: {
-        newRecipe,
-      },
+      code: 200,
+      message: 'Ingredient added',
+      newIngredient,
+    });
+  } catch (error) {
+    console.error(error);
+    return next(error);
+  }
+};
+
+const getShoppingListHandler = async (req, res, next) => {
+  try {
+    const id = { owner: req.user._id };
+    const { ingredients } = await getShoppingList(id);
+
+    if (ingredients === null) {
+      return res.status(500).json({
+        status: 'error',
+        code: 500,
+        message: 'Internal Server Error',
+      });
+    }
+
+    if (ingredients.length === 0) {
+      return res.status(204).json({
+        status: 'success',
+        code: 204,
+        message: 'No content',
+      });
+    }
+
+    res.status(200).json({
+      status: 'success',
+      code: 200,
+      ingredients,
     });
   } catch (error) {
     console.error(error);
@@ -33,4 +67,5 @@ const addIngredientHandler = async (req, res, next) => {
 
 module.exports = {
   addIngredientHandler,
+  getShoppingListHandler,
 };
