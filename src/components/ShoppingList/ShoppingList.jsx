@@ -6,6 +6,8 @@ import {
   Title,
   Amount,
   Remove,
+  ProductBox,
+  AmountBox,
 } from './ShoppingList.styled';
 import { useSelector } from 'react-redux';
 import { selectShoppingList } from 'redux/selectors/shoppingList.selectors';
@@ -16,12 +18,16 @@ const ShoppingList = () => {
     <List>
       {ingredients.map(({ _id, title, thumb, measure }) => (
         <Item key={_id}>
-          <ImageBox>
-            <Image src={thumb} alt={title} />
-          </ImageBox>
-          <Title>{title}</Title>
-          <Amount>{measure}</Amount>
-          <Remove />
+          <ProductBox>
+            <ImageBox>
+              <Image src={thumb} alt={title} />
+            </ImageBox>
+            <Title>{title}</Title>
+          </ProductBox>
+          <AmountBox>
+            <Amount>{measure}</Amount>
+            <Remove />
+          </AmountBox>
         </Item>
       ))}
     </List>

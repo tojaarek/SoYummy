@@ -1,11 +1,13 @@
-import { Container, Position } from './ListBar.styled';
+import { Container, Position, Wrapper } from './ListBar.styled';
 
 const ListBar = () => {
   return (
     <Container>
-      <Position $isProduct>Product</Position>
-      <Position>Amount</Position>
-      <Position>Remove</Position>
+      <Position>Product</Position>
+      <Wrapper>
+        <Position $isProduct>Amount</Position>
+        <Position>Remove</Position>
+      </Wrapper>
     </Container>
   );
 };

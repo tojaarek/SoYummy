@@ -9,9 +9,8 @@ export const Container = styled.div`
   justify-content: space-between;
   margin-bottom: 32px;
   @media only screen and ${devices.tablet} {
-  }
-
-  @media only screen and ${devices.desktop} {
+    margin-bottom: 50px;
+    padding: 20px;
   }
 `;
 
@@ -20,10 +19,14 @@ export const Position = styled.p`
   font-size: 12px;
   font-weight: 600;
   line-height: 1.5;
-  margin: ${props => (props.$isProduct ? '0 100px 0 0' : '0')};
+  margin: ${props => (props.$isProduct ? '0 40px 0 0' : '0')};
   @media only screen and ${devices.tablet} {
+    font-size: 18px;
+    line-height: normal;
+    letter-spacing: 0.54px;
   }
+`;
 
-  @media only screen and ${devices.desktop} {
-  }
+export const Wrapper = styled.div`
+  display: flex;
 `;
