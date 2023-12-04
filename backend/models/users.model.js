@@ -35,7 +35,7 @@ const usersSchema = new Schema(
     },
     avatar: {
       type: String,
-      default: null,
+      default: 'http://localhost:3030/avatars/basic_avatar.png',
     },
   },
   { versionKey: false, timestamps: true }

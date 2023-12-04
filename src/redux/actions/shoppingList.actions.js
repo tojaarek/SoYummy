@@ -39,3 +39,19 @@ export const addToShoppingList = createAsyncThunk(
     }
   }
 );
+
+export const deleteFromShoppingList = createAsyncThunk(
+  'shoppingList/DELETE',
+  async (index, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const token = state.users.token;
+    setHeader(token);
+    try {
+      const response = await axios.delete(`/shopping-list/${index}`);
+      return response.data;
+    } catch (error) {
+      console.log(error, 'error');
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

@@ -1,6 +1,10 @@
 const { User } = require('../models/users.model.js');
 const { ShoppingList } = require('../models/shoppingList.model.js');
 const { UnknownDatabaseError } = require('../db.js');
+const fs = require('fs/promises');
+const path = require('path');
+const mimetypes = require('mime-types');
+const Jimp = require('jimp');
 
 const createUser = async data => {
   try {
@@ -35,9 +39,26 @@ const updateUser = async (_id, data) => {
   }
 };
 
+const changeAvatarFile = async (filePath, _id, mimetype) => {
+  try {
+    const fileName = `${_id}_avatar.${mimetypes.extension(mimetype)}`;
+    const avatarImage = await Jimp.read(filePath);
+    await avatarImage.resize(250, 250).writeAsync(filePath);
+    await fs.rename(
+      filePath,
+      path.join(__dirname, '..', 'public/avatars', fileName)
+    );
+    return fileName;
+  } catch (error) {
+    console.error(error);
+    throw new UnknownDatabaseError();
+  }
+};
+
 module.exports = {
   createUser,
   getUser,
   updateUser,
+  changeAvatarFile,
   UnknownDatabaseError,
 };

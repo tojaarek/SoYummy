@@ -2,6 +2,7 @@ const {
   createUser,
   getUser,
   updateUser,
+  changeAvatarFile,
 } = require('../service/users.service.js');
 const { generateToken } = require('../service/auth.service.js');
 
@@ -31,6 +32,7 @@ const registerHandler = async (req, res, next) => {
       user: {
         name: name,
         email: email,
+        avatar: 'http//:localhost:3030/avatars/basic_avatar',
       },
     });
   } catch (error) {
@@ -75,6 +77,7 @@ const signInHandler = async (req, res, next) => {
       user: {
         name: userPayload.name,
         email: userPayload.email,
+        avatar: user.avatar,
       },
     });
   } catch (error) {
@@ -180,6 +183,29 @@ const updateUserNameHandler = async (req, res, next) => {
   }
 };
 
+const updateUserAvatar = async (req, res, next) => {
+  try {
+    const filePath = req.file.path;
+    const id = req.user._id;
+    const mimetype = req.file.mimetype;
+    const avatar = await changeAvatarFile(filePath, id, mimetype);
+    const updatedUser = await updateUser(id, {
+      avatar: `http://localhost:3030/avatars/${avatar}`,
+    });
+
+    return res.status(200).json({
+      status: 'success',
+      code: 200,
+      data: {
+        updatedUser,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+    return next(error);
+  }
+};
+
 module.exports = {
   registerHandler,
   signInHandler,
@@ -187,4 +213,5 @@ module.exports = {
   logOutHandler,
   currentUserHandler,
   updateUserNameHandler,
+  updateUserAvatar,
 };

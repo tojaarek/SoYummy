@@ -23,9 +23,12 @@ const addToShoppingList = async (id, body) => {
   }
 };
 
-const deleteFromShoppingList = async ingredientId => {
+const deleteFromShoppingList = async (id, index) => {
   try {
-    await ShoppingList.findByIdAndDelete(ingredientId);
+    const list = await ShoppingList.findOne(id);
+    list.ingredients.splice(index, 1);
+    const saveList = await list.save();
+    return saveList;
   } catch (error) {
     console.error(error);
     throw new UnknownDatabaseError();

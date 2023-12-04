@@ -5,6 +5,7 @@ const initialState = {
   name: null,
   email: null,
   token: null,
+  avatar: null,
   isLoggedIn: false,
   isRefreshing: false,
 };
@@ -18,6 +19,7 @@ const usersSlice = createSlice({
         state.name = action.payload.user.name;
         state.email = action.payload.user.email;
         state.token = action.payload.token;
+        state.avatar = action.payload.avatar;
         state.isLoggedIn = true;
       })
       .addCase(register.rejected, state => {
@@ -27,6 +29,7 @@ const usersSlice = createSlice({
         state.name = action.payload.user.name;
         state.email = action.payload.user.email;
         state.token = action.payload.token;
+        state.avatar = action.payload.user.avatar;
         state.isLoggedIn = true;
       })
       .addCase(signIn.rejected, state => {
@@ -35,6 +38,7 @@ const usersSlice = createSlice({
       .addCase(refreshUser.fulfilled, (state, action) => {
         state.name = action.payload.user.name;
         state.email = action.payload.user.email;
+        state.avatar = action.payload.user.avatar;
         state.isLoggedIn = true;
         state.isRefreshing = false;
       })

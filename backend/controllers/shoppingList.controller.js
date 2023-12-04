@@ -1,6 +1,7 @@
 const {
   getShoppingList,
   addToShoppingList,
+  deleteFromShoppingList,
 } = require('../service/shoppingList.service.js');
 
 const addIngredientHandler = async (req, res, next) => {
@@ -26,6 +27,32 @@ const addIngredientHandler = async (req, res, next) => {
       code: 200,
       message: 'Ingredient added',
       newIngredient,
+    });
+  } catch (error) {
+    console.error(error);
+    return next(error);
+  }
+};
+
+const deleteIngredientHandler = async (req, res, next) => {
+  try {
+    const userId = { owner: req.user._id };
+    const index = req.params.index;
+
+    const deleteIngredient = deleteFromShoppingList(userId, index);
+
+    if (!deleteIngredient) {
+      res.status(500).json({
+        status: 'error',
+        code: 500,
+        message: 'Internal Server Error',
+      });
+    }
+    res.status(201).json({
+      status: 'success',
+      code: 200,
+      message: 'Ingredient deleted',
+      deletedIngredient: index,
     });
   } catch (error) {
     console.error(error);
@@ -68,4 +95,5 @@ const getShoppingListHandler = async (req, res, next) => {
 module.exports = {
   addIngredientHandler,
   getShoppingListHandler,
+  deleteIngredientHandler,
 };

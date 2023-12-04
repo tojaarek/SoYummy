@@ -17,6 +17,7 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 app.use('/thumbs', express.static(path.join('backend', 'public', 'thumbs')));
+app.use('/avatars', express.static(path.join('backend', 'public', 'avatars')));
 
 app.use('/users', usersRouter);
 app.use('/ingredients', ingredientsRouter);

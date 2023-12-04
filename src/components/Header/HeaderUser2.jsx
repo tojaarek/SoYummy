@@ -42,7 +42,7 @@ const HeaderUser2 = () => {
   return (
     <>
       <Container onClick={openUserModal}>
-        <UserAvatar>{userAvatar}</UserAvatar>
+        <UserAvatar src={userAvatar}></UserAvatar>
 
         <UserName>{userName}</UserName>
       </Container>

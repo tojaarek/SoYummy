@@ -106,6 +106,9 @@ export const ProductBox = styled.div`
   @media only screen and ${devices.tablet} {
     max-width: 300px;
   }
+  @media only screen and ${devices.desktop} {
+    max-width: 600px;
+  }
 `;
 
 export const AmountBox = styled.div`

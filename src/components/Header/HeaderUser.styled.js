@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { devices } from 'const/breakpoints';
 
 export const Container = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
   margin-right: 24px;
   @media only screen and ${devices.tablet} {
     margin-right: 50px;
@@ -15,11 +15,10 @@ export const Container = styled.div`
   }
 `;
 
-export const UserAvatar = styled.div`
+export const UserAvatar = styled.img`
   height: 34px;
   width: 34px;
   border-radius: 50%;
-  background-color: rgba(217, 217, 217, 1);
   @media only screen and ${devices.tablet} {
     height: 44px;
     width: 44px;
