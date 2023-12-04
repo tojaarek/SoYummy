@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/SoYummy/static/css/main.5eceb058.css",
-    "main.js": "/SoYummy/static/js/main.05b2a600.js",
+    "main.css": "/SoYummy/static/css/main.ca0534c1.css",
+    "main.js": "/SoYummy/static/js/main.09fd8fe5.js",
     "static/media/start-background-desktop@3x.png": "/SoYummy/static/media/start-background-desktop@3x.b44aa071e445db97d450.png",
     "static/media/start-background-tablet@3x.png": "/SoYummy/static/media/start-background-tablet@3x.0fa9cc358074087598db.png",
     "static/media/start-background-desktop@2x.png": "/SoYummy/static/media/start-background-desktop@2x.95a6812a2965bbcc8206.png",
@@ -64,7 +64,6 @@
     "static/media/pagination-right.svg": "/SoYummy/static/media/pagination-right.2bbbb0cc5dabf3100a234817241aaa95.svg",
     "static/media/pagination-left.svg": "/SoYummy/static/media/pagination-left.3fae6bfc899abcbc80df70d00f45d214.svg",
     "static/media/youtube-icon.svg": "/SoYummy/static/media/youtube-icon.f2991421d54f053717d2288c78ce5d4b.svg",
-    "static/media/Empty.svg": "/SoYummy/static/media/Empty.f4b535b1ed8cf5575ecee96368584b91.svg",
     "static/media/man.svg": "/SoYummy/static/media/man.255ead0023fa6e5a6e3381cd2ad36181.svg",
     "static/media/pen.svg": "/SoYummy/static/media/pen.c42b3c2f11c2849a9a8657320351f728.svg",
     "static/media/user-icon.svg": "/SoYummy/static/media/user-icon.fbd075ee7304029b7374859e4b3ef694.svg",
@@ -86,11 +85,11 @@
     "static/media/BurgerIcon.svg": "/SoYummy/static/media/BurgerIcon.152b4be8c402e67b35467b3fce7e76f8.svg",
     "static/media/dropdown-arrow-down.svg": "/SoYummy/static/media/dropdown-arrow-down.de265e111555c43f149a3823ca7017c4.svg",
     "static/media/signin-background-desktop.svg": "/SoYummy/static/media/signin-background-desktop.d5d5440654b186017ddacb2e9f52c512.svg",
-    "main.5eceb058.css.map": "/SoYummy/static/css/main.5eceb058.css.map",
-    "main.05b2a600.js.map": "/SoYummy/static/js/main.05b2a600.js.map"
+    "main.ca0534c1.css.map": "/SoYummy/static/css/main.ca0534c1.css.map",
+    "main.09fd8fe5.js.map": "/SoYummy/static/js/main.09fd8fe5.js.map"
   },
   "entrypoints": [
-    "static/css/main.5eceb058.css",
-    "static/js/main.05b2a600.js"
+    "static/css/main.ca0534c1.css",
+    "static/js/main.09fd8fe5.js"
   ]
 }
