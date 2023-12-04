@@ -7,6 +7,7 @@ import { getShoppingList } from 'redux/actions/shoppingList.actions';
 import ListBar from 'components/ListBar/ListBar';
 import { useEffect } from 'react';
 import ShoppingList from 'components/ShoppingList/ShoppingList';
+import { Helmet } from 'react-helmet';
 
 const ShoppingListPage = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,9 @@ const ShoppingListPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>SoYummy | Shopping list</title>
+      </Helmet>
       {isLoading ? (
         <Loader />
       ) : (

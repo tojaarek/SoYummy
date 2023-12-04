@@ -10,6 +10,7 @@ import {
 import MyRecipesList from 'components/MyRecipesList/MyRecipesList';
 import Pagination from 'components/Pagination/Pagination';
 import { Loader } from 'components/Loader/Loader';
+import { Helmet } from 'react-helmet';
 
 const MyRecipesPage = () => {
   const totalPages = useSelector(selectTOwnRecipesTotalPages);
@@ -43,6 +44,9 @@ const MyRecipesPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>SoYummy | My recipes</title>
+      </Helmet>
       {isDeleting ? (
         <Loader text="Deleting recipe" />
       ) : (

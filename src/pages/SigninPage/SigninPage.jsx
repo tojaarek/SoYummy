@@ -10,21 +10,27 @@ import imageDesktop3x from '../../images/signin-image-desktop@3x.png';
 import SigninForm from 'components/SigninForm/SigninForm';
 import { Section, Container } from './SigninPage.styled';
 import { ToastContainer } from 'react-toastify';
+import { Helmet } from 'react-helmet';
 
 const SigninPage = () => {
   return (
-    <Section>
-      <Container>
-        <img
-          src={imageMobile}
-          srcSet={`${imageMobile} 285w, ${imageMobile2x} 570w, ${imageMobile3x} 855w, ${imageTablet} 409w, ${imageTablet2x} 818w, ${imageTablet3x} 1227w, ${imageDesktop} 532w, ${imageDesktop2x} 1064w, ${imageDesktop3x} 1596w`}
-          sizes="(min-width: 1280px) 532px, (min-width: 768px) 409px, (min-width: 320px) 285px, 100vw"
-          alt="Register hero"
-        />
-        <SigninForm />
-      </Container>
-      <ToastContainer />
-    </Section>
+    <>
+      <Helmet>
+        <title>SoYummy | Sign in</title>
+      </Helmet>
+      <Section>
+        <Container>
+          <img
+            src={imageMobile}
+            srcSet={`${imageMobile} 285w, ${imageMobile2x} 570w, ${imageMobile3x} 855w, ${imageTablet} 409w, ${imageTablet2x} 818w, ${imageTablet3x} 1227w, ${imageDesktop} 532w, ${imageDesktop2x} 1064w, ${imageDesktop3x} 1596w`}
+            sizes="(min-width: 1280px) 532px, (min-width: 768px) 409px, (min-width: 320px) 285px, 100vw"
+            alt="Register hero"
+          />
+          <SigninForm />
+        </Container>
+        <ToastContainer />
+      </Section>
+    </>
   );
 };
 

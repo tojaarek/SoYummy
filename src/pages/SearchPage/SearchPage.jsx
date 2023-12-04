@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { selectUserToken } from 'redux/selectors/users.selectors';
 import axios from 'axios';
 import SearchResults from 'components/SearchResults/SearchResults';
+import { Helmet } from 'react-helmet';
 
 export const SearchPage = () => {
   const [searchParams] = useSearchParams();
@@ -45,13 +46,18 @@ export const SearchPage = () => {
   }, [query]);
 
   return (
-    <Section>
-      <Container>
-        <MainTitle title="Search" />
-        <Search />
-        <SearchResults results={results} />
-      </Container>
-    </Section>
+    <>
+      <Helmet>
+        <title>SoYummy | Search</title>
+      </Helmet>
+      <Section>
+        <Container>
+          <MainTitle title="Search" />
+          <Search />
+          <SearchResults results={results} />
+        </Container>
+      </Section>
+    </>
   );
 };
 

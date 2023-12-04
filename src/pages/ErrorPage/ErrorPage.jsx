@@ -6,20 +6,26 @@ import {
   Description,
   ErrorImage,
 } from './ErrorPage.styled';
+import { Helmet } from 'react-helmet';
 
 const ErrorPage = () => {
   return (
-    <Section>
-      <Container>
-        <ImageWrapper>
-          <ErrorImage />
-          <Notice>We are sorry,</Notice>
-          <Description>
-            but the page you were looking for can't be found...
-          </Description>
-        </ImageWrapper>
-      </Container>
-    </Section>
+    <>
+      <Helmet>
+        <title>SoYummy | 404 Not found</title>
+      </Helmet>
+      <Section>
+        <Container>
+          <ImageWrapper>
+            <ErrorImage />
+            <Notice>We are sorry,</Notice>
+            <Description>
+              but the page you were looking for can't be found...
+            </Description>
+          </ImageWrapper>
+        </Container>
+      </Section>
+    </>
   );
 };
 

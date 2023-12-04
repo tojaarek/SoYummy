@@ -25,6 +25,7 @@ import PreviewCategories from 'components/PreviewCategories/PreviewCategories';
 import { useNavigate } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 
 const MainPage2 = () => {
   const navigate = useNavigate();
@@ -36,6 +37,9 @@ const MainPage2 = () => {
 
   return (
     <>
+      <Helmet>
+        <title>SoYummy | Main</title>
+      </Helmet>
       <SectionHero>
         {isTablet ? (
           <Container>

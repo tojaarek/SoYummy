@@ -11,6 +11,7 @@ import {
 } from 'redux/selectors/favorites.selectors';
 import { getUserFavorites } from 'redux/actions/favorites.actions';
 import FavoritesList from 'components/FavoritesList/FavoritesList';
+import { Helmet } from 'react-helmet';
 
 const FavoritesPage = () => {
   const totalPages = useSelector(selectFavoritesTotalPages);
@@ -46,6 +47,9 @@ const FavoritesPage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>SoYummy | Favorites</title>
+      </Helmet>
       {isDeleting ? (
         <Loader text="Deleting recipe" />
       ) : (

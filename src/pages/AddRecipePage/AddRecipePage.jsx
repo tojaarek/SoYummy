@@ -7,6 +7,7 @@ import { useSelector } from 'react-redux';
 import { selectAddRecipeIsLoading } from 'redux/selectors/recipes.selectors';
 import { Loader } from 'components/Loader/Loader';
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet';
 
 const AddRecipePage = () => {
   const isLoading = useSelector(selectAddRecipeIsLoading);
@@ -17,6 +18,9 @@ const AddRecipePage = () => {
 
   return (
     <>
+      <Helmet>
+        <title>SoYummy | Add recipe</title>
+      </Helmet>
       {isLoading ? (
         <Loader text="Adding recipe" />
       ) : (

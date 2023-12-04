@@ -2,11 +2,9 @@ import { Form, Button } from './AddRecipeForm.styled';
 import RecipeDescriptionFields from 'components/RecipeDescriptionFields/RecipeDescriptionFields';
 import RecipeIngredientsFields from 'components/RecipeIngredientsFields/RecipeIngredientsFields';
 import RecipePreparationFields from 'components/RecipePreparationFields/RecipePreparationFields';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { addRecipe } from 'redux/actions/recipes.actions';
-import { selectAddRecipeIsSuccess } from 'redux/selectors/recipes.selectors';
 
 const AddRecipeForm = () => {
   const [picture, setPicture] = useState('');
@@ -16,8 +14,6 @@ const AddRecipeForm = () => {
   const [time, setTime] = useState('');
   const [ingredients, setIngredients] = useState([]);
   const [instructions, setInstructions] = useState('');
-  const isSuccess = useSelector(selectAddRecipeIsSuccess);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleSetPicture = image => {

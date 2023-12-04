@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 import { fetchRecipeById } from 'redux/actions/recipes.actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectRecipe } from 'redux/selectors/recipes.selectors';
+import { Helmet } from 'react-helmet';
 
 export const RecipesPage = () => {
   const dispatch = useDispatch();
@@ -20,29 +21,34 @@ export const RecipesPage = () => {
   const recipe = useSelector(selectRecipe);
 
   return (
-    <div className={css.General}>
-      <div className={css.RecipesPageBackgroundImange}>
-        <RecipePageHero
-          title={recipe?.title}
-          description={recipe?.description}
-          time={recipe?.time}
-          thumb={recipe?.thumb}
-          _id={recipe?._id}
-        />
-      </div>
-      {!!recipe?.ingredients && (
-        <RecipeIngredientsList requiredIngredients={recipe?.ingredients} />
-      )}
-      {!!recipe?.instructions && (
-        <div className={css.RecipePreparation}>
-          <RecipePreparation
-            thumb={recipe?.thumb}
-            instructions={recipe?.instructions}
+    <>
+      <Helmet>
+        <title>SoYummy | {recipe.title}</title>
+      </Helmet>
+      <div className={css.General}>
+        <div className={css.RecipesPageBackgroundImange}>
+          <RecipePageHero
             title={recipe?.title}
+            description={recipe?.description}
+            time={recipe?.time}
+            thumb={recipe?.thumb}
+            _id={recipe?._id}
           />
         </div>
-      )}
-    </div>
+        {!!recipe?.ingredients && (
+          <RecipeIngredientsList requiredIngredients={recipe?.ingredients} />
+        )}
+        {!!recipe?.instructions && (
+          <div className={css.RecipePreparation}>
+            <RecipePreparation
+              thumb={recipe?.thumb}
+              instructions={recipe?.instructions}
+              title={recipe?.title}
+            />
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 
