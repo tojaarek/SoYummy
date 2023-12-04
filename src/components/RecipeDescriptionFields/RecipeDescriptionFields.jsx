@@ -31,7 +31,7 @@ const RecipeDescriptionFields = ({
   const getCategories = async () => {
     try {
       const response = await axios.get(
-        'http://localhost:3030/recipes/category-list',
+        'https://soyummy-h1wx.onrender.com/recipes/category-list',
         {
           headers: {
             Authorization: `Bearer ${userToken}`,

@@ -3,8 +3,6 @@ import { devices } from 'const/breakpoints';
 import background from '../../images/main-page/bg-right-mobile.svg';
 import backgroundDesktop from '../../images/main-page/bg-right-desktop.svg';
 import leftLeaves from '../../images/main-page/main-left-top-leaves-mobile.png';
-import leftTop2x from '../../images/main-page/main-left-top-leaves-mobile@2x.png';
-import leftTop3x from '../../images/main-page/main-left-top-leaves-mobile@3x.png';
 import leftLeavesTablet from '../../images/main-page/main-left-top-leaves-tablet.png';
 import leftLeavesDesktop from '../../images/main-page/main-left-top-leaves-tablet.png';
 import rightTop from '../../images/main-page/main-right-top-leaves-mobile.png';

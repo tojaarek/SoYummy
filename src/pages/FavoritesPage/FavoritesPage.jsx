@@ -15,6 +15,7 @@ import FavoritesList from 'components/FavoritesList/FavoritesList';
 const FavoritesPage = () => {
   const totalPages = useSelector(selectFavoritesTotalPages);
   const isDeleting = useSelector(selectFavoritesIsDeleting);
+  // eslint-disable-next-line no-unused-vars
   const favorites = useSelector(selectFavorites);
   const [currentPage, setCurrentPage] = useState(1);
   const dispatch = useDispatch();

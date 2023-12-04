@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { devices } from 'const/breakpoints';
 import { ReactComponent as BurgerIcon } from '../../images/Header/BurgerIcon.svg';
 

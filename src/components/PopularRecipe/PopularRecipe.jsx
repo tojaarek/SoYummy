@@ -22,7 +22,7 @@ const PopularRecipe = () => {
     const getRecipes = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:3030/recipes/popular-recipe',
+          'https://soyummy-h1wx.onrender.com/recipes/popular-recipe',
           {
             headers: {
               Authorization: `Bearer ${userToken}`,

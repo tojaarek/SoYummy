@@ -7,6 +7,7 @@ import './SubscribeFormFooter.styled.css'; // Dodaj import pliku CSS
 const SubscribeForm = () => {
   const [email, setEmail] = useState('');
   const [isEmailValid, setIsEmailValid] = useState(true);
+  // eslint-disable-next-line no-unused-vars
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const isValidEmail = email => {

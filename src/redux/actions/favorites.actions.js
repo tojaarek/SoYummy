@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 
-axios.defaults.baseURL = 'http://localhost:3030';
+axios.defaults.baseURL = 'https://soyummy-h1wx.onrender.com';
 
 const setHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;

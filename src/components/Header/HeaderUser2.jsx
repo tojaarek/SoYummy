@@ -1,5 +1,4 @@
 import { useState, useCallback } from 'react';
-import css from './Header.module.css';
 import { HeaderUserModal } from './HeaderUserModal';
 import { HeaderEditModal } from './HeaderEditModal';
 import { HeaderLogoutModal } from './HeaderLogoutModal';

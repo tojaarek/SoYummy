@@ -20,7 +20,7 @@ const RecipeIngredientsFields = ({ selectedIngredients }) => {
     const getIngredients = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:3030/ingredients/list',
+          'https://soyummy-h1wx.onrender.com/ingredients/list',
           {
             headers: {
               Authorization: `Bearer ${userToken}`,
