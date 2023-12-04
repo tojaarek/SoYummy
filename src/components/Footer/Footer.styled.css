@@ -23,9 +23,8 @@
 .MainBox {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  max-width: 430px;
   width: 100%;
+  max-width: 430px;
 
   @media (min-width: 768px) {
     display: flex;
