@@ -5,29 +5,35 @@ export const FooterMenu = () => {
   return (
     <div className="MenuItems">
       <Link
-        to="/search?query=&type=ingredients"
+        to={'/main/categories'}
         style={{ color: 'white', textDecoration: 'none' }}
       >
-        <span className="Item">Ingredients</span>
+        <span className="Item">Categories</span>
       </Link>
 
       <Link
-        to="/ownRecipes/add"
+        to={'/main/ownRecipes/add'}
         style={{ color: 'white', textDecoration: 'none' }}
       >
         <span className="Item">Add recipes</span>
       </Link>
 
-      <Link to="/my" style={{ color: 'white', textDecoration: 'none' }}>
+      <Link
+        to={'/main/ownRecipes/my'}
+        style={{ color: 'white', textDecoration: 'none' }}
+      >
         <span className="Item">My recipes</span>
       </Link>
 
-      <Link to="/favorite" style={{ color: 'white', textDecoration: 'none' }}>
-        <span className="Item">Favorite</span>
+      <Link
+        to={'/main/favorites'}
+        style={{ color: 'white', textDecoration: 'none' }}
+      >
+        <span className="Item">Favorites</span>
       </Link>
 
       <Link
-        to="/shopping-list"
+        to={'/main/shopping-list'}
         style={{ color: 'white', textDecoration: 'none' }}
       >
         <span className="Item">Shopping list</span>
