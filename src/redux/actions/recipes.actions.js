@@ -19,7 +19,6 @@ export const fetchCategoryRecipes = createAsyncThunk(
       const response = await axios.get('/recipes/category/' + categoryId);
       return response.data;
     } catch (error) {
-      console.log(error, 'error');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -42,7 +41,6 @@ export const addRecipe = createAsyncThunk(
       }
       return data;
     } catch (error) {
-      console.log(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -58,7 +56,6 @@ export const getUserRecipes = createAsyncThunk(
       const response = await axios.get(`/ownRecipes?page=${pageNumber}`);
       return response.data;
     } catch (error) {
-      console.error(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -74,7 +71,6 @@ export const deleteUserRecipe = createAsyncThunk(
       const response = await axios.delete(`/ownRecipes/${recipeId}`);
       return response.data;
     } catch (error) {
-      console.error(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -90,7 +86,6 @@ export const fetchCategoriesList = createAsyncThunk(
       const response = await axios.get('/recipes/category-list');
       return response.data;
     } catch (error) {
-      console.error(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -106,7 +101,6 @@ export const fetchRecipeById = createAsyncThunk(
       const response = await axios.get('/recipes/' + id);
       return response.data.recipe;
     } catch (error) {
-      console.error(error);
       return thunkAPI.rejectWithValue(error.message);
     }
   }

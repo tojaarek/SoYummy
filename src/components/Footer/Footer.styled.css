@@ -1,5 +1,3 @@
-/* Footer.css */
-
 .FooterContainer {
   display: flex;
   flex-direction: column;
@@ -28,7 +26,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
 
   @media (min-width: 768px) {
     display: flex;
