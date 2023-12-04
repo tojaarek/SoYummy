@@ -50,7 +50,7 @@ export const HeaderUserModal = ({ onClose, editOpen, logOutOpen }) => {
                 logOutOpen();
               }}
             >
-              Log-out
+              Log out
               <ArrowRight />
             </button>
           </div>

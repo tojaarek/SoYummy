@@ -17,7 +17,7 @@ export const SearchPage = () => {
   const getResults = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:3030/recipes/search?q=${query}`,
+        `https://soyummy-h1wx.onrender.com/recipes/search?q=${query}`,
         {
           headers: {
             Authorization: `Bearer ${userToken}`,

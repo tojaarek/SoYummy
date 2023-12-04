@@ -1,13 +1,18 @@
 import css from './Header.module.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { ReactComponent as CrossIcon } from '../../images/Header/CrossIcon.svg';
-import { ReactComponent as Empty } from '../../images/Header/Empty.svg';
 import { ReactComponent as AddPhotoIcon } from '../../images/Header/AddPhotoIcon.svg';
 import { ReactComponent as Man } from '../../images/Header/man.svg';
-
+import { useDispatch, useSelector } from 'react-redux';
 import { ReactComponent as Pen } from '../../images/Header/pen.svg';
+import { getAvatar } from 'redux/selectors/users.selectors';
+import { changeAvatar } from 'redux/actions/users.actions';
 
 export const HeaderEditModal = ({ onClose }) => {
+  const [avatar, setAvatar] = useState('');
+  const avatarImage = useSelector(getAvatar);
+  const dispatch = useDispatch();
+
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.code === 'Escape') {
@@ -18,7 +23,19 @@ export const HeaderEditModal = ({ onClose }) => {
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [onClose]);
+  }, [onClose, avatarImage]);
+
+  const handleAvatar = event => {
+    const file = event.target.files[0];
+    setAvatar(file);
+  };
+
+  const handleSave = event => {
+    event.preventDefault();
+    const newAvatar = new FormData();
+    newAvatar.append('avatar', avatar);
+    dispatch(changeAvatar(newAvatar));
+  };
 
   return (
     <>
@@ -34,14 +51,20 @@ export const HeaderEditModal = ({ onClose }) => {
               <CrossIcon className={css.CrossIcon} />
             </button>
             <div className={css.HeaderEditModalStyledImgContainer}>
-              <Empty className={css.Empty} />
+              <img
+                src={avatarImage}
+                alt="User avatar"
+                className={css.avatar}
+              ></img>
             </div>
             <form className={css.HeaderEditModalForm}>
               <label className={css.HeaderEditModalForm}>
                 <input
-                  type={'file'}
-                  accept={'image/jpeg,image/png,image/gif'}
+                  type="file"
+                  name="file"
+                  accept="image/png, image/jpeg, image/jpg"
                   className={css.HeaderEditModalFileInput}
+                  onChange={handleAvatar}
                 />
 
                 <AddPhotoIcon className={css.AddPhotoIcon} />
@@ -52,7 +75,10 @@ export const HeaderEditModal = ({ onClose }) => {
                 <Pen className={css.HeaderEditModalPen} />
                 <Man className={css.Man} />
               </label>
-              <button className={css.HeaderEditModalSubmitButton}>
+              <button
+                className={css.HeaderEditModalSubmitButton}
+                onClick={handleSave}
+              >
                 Save changes
               </button>
             </form>

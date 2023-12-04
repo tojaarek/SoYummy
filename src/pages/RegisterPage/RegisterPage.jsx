@@ -9,6 +9,7 @@ import imageDesktop2x from '../../images/signin-image-desktop@2x.png';
 import imageDesktop3x from '../../images/signin-image-desktop@3x.png';
 import RegisterForm from 'components/RegisterForm/RegisterForm';
 import { Section, Container } from './RegisterPage.styled';
+import { ToastContainer } from 'react-toastify';
 
 const RegisterPage = () => {
   return (
@@ -22,6 +23,7 @@ const RegisterPage = () => {
         />
         <RegisterForm />
       </Container>
+      <ToastContainer />
     </Section>
   );
 };

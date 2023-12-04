@@ -1,5 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { register, signIn, refreshUser } from 'redux/actions/users.actions';
+import {
+  register,
+  signIn,
+  logOut,
+  refreshUser,
+  changeAvatar,
+} from 'redux/actions/users.actions';
 
 const initialState = {
   name: null,
@@ -47,6 +53,17 @@ const usersSlice = createSlice({
       })
       .addCase(refreshUser.rejected, state => {
         state.isRefreshing = false;
+      })
+      .addCase(logOut.fulfilled, state => {
+        state.name = null;
+        state.email = null;
+        state.token = null;
+        state.avatar = null;
+        state.isLoggedIn = false;
+      })
+      .addCase(changeAvatar.fulfilled, (state, action) => {
+        const avatar = action.payload.data.updatedUser.avatar;
+        state.avatar = avatar;
       });
   },
 });

@@ -6,6 +6,11 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   margin-right: 24px;
+  cursor: pointer;
+
+  &:is(:hover, :focus-visible) p {
+    color: #8baa36;
+  }
   @media only screen and ${devices.tablet} {
     margin-right: 50px;
   }
@@ -35,9 +40,7 @@ export const UserName = styled.p`
   transition-property: color;
   transition-duration: 500ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  &:is(:hover, :focus) {
-    color: #8baa36;
-  }
+
   @media only screen and ${devices.tablet} {
     font-size: 14px;
     line-height: 1.7;
