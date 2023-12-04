@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/SoYummy/static/css/main.5eceb058.css",
-    "main.js": "/SoYummy/static/js/main.8638b298.js",
+    "main.js": "/SoYummy/static/js/main.74c869d9.js",
     "static/media/start-background-desktop@3x.png": "/SoYummy/static/media/start-background-desktop@3x.b44aa071e445db97d450.png",
     "static/media/start-background-tablet@3x.png": "/SoYummy/static/media/start-background-tablet@3x.0fa9cc358074087598db.png",
     "static/media/start-background-desktop@2x.png": "/SoYummy/static/media/start-background-desktop@2x.95a6812a2965bbcc8206.png",
@@ -87,10 +87,10 @@
     "static/media/dropdown-arrow-down.svg": "/SoYummy/static/media/dropdown-arrow-down.de265e111555c43f149a3823ca7017c4.svg",
     "static/media/signin-background-desktop.svg": "/SoYummy/static/media/signin-background-desktop.d5d5440654b186017ddacb2e9f52c512.svg",
     "main.5eceb058.css.map": "/SoYummy/static/css/main.5eceb058.css.map",
-    "main.8638b298.js.map": "/SoYummy/static/js/main.8638b298.js.map"
+    "main.74c869d9.js.map": "/SoYummy/static/js/main.74c869d9.js.map"
   },
   "entrypoints": [
     "static/css/main.5eceb058.css",
-    "static/js/main.8638b298.js"
+    "static/js/main.74c869d9.js"
   ]
 }
