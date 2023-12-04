@@ -9,7 +9,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from './redux/store';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter basename="/so-yummy">
+  <BrowserRouter basename="https://tojaarek.github.io/SoYummy/">
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <App />
