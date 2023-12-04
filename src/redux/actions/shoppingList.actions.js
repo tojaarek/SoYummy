@@ -1,6 +1,7 @@
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://soyummy-h1wx.onrender.com';
 
@@ -32,6 +33,11 @@ export const addToShoppingList = createAsyncThunk(
     setHeader(token);
     try {
       const response = await axios.post('/shopping-list/add', body);
+      if (response.data) {
+        toast.success('The ingredient has been added to your shopping list', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
       return response.data;
     } catch (error) {
       console.log(error, 'error');

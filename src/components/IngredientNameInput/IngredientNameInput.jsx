@@ -47,6 +47,7 @@ const IngredientsNameInput = ({ options, onSelectionChange }) => {
         onChange={handleInputChange}
         onFocus={handleInputFocus}
         placeholder="Name"
+        required
       />
       <Arrow className={css.dropdownIcon} onClick={handleInputFocus} />
       {isOpen && (

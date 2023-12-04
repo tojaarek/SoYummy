@@ -1,6 +1,7 @@
 import axios from 'axios';
 import 'react-toastify/dist/ReactToastify.css';
 import { createAsyncThunk } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
 
 axios.defaults.baseURL = 'https://soyummy-h1wx.onrender.com';
 
@@ -34,6 +35,11 @@ export const addRecipe = createAsyncThunk(
           'Content-Type': 'multipart/form-data',
         },
       });
+      if (data) {
+        toast.success('The recipe has been successfully added', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
       return data;
     } catch (error) {
       console.log(error);

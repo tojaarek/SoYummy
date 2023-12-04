@@ -126,6 +126,7 @@ const RecipeDescriptionFields = ({
             accept="image/png, image/jpeg, image/jpg"
             multiple={false}
             onChange={handleFileInputChange}
+            required
           ></input>
           {previewSource ? (
             <img
@@ -146,6 +147,7 @@ const RecipeDescriptionFields = ({
             placeholder="Enter item title"
             className={css.input}
             onChange={changeTitle}
+            required
           ></input>
         </div>
         <div className={css.item}>
@@ -155,6 +157,7 @@ const RecipeDescriptionFields = ({
             placeholder="Enter about recipe"
             className={css.input}
             onChange={changeAbout}
+            required
           ></input>
         </div>
         <div className={css.itemDropdown}>
@@ -166,6 +169,7 @@ const RecipeDescriptionFields = ({
               value={selectedCategory}
               readOnly
               className={css.inputDropdown}
+              required
             ></input>
             <Arrow className={css.dropdownIcon} />
           </div>
@@ -188,6 +192,7 @@ const RecipeDescriptionFields = ({
               value={selectedTime}
               readOnly
               className={css.inputDropdown}
+              required
             ></input>
             <Arrow className={css.dropdownIcon} />
           </div>

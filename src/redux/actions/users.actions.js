@@ -100,3 +100,16 @@ export const changeAvatar = createAsyncThunk(
     }
   }
 );
+
+export const changeName = createAsyncThunk(
+  'AUTH/UPDATE_NAME',
+  async (body, thunkAPI) => {
+    try {
+      const { data } = await axios.patch('/users/current/name', body);
+      setHeader(data.token);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

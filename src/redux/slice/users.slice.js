@@ -5,6 +5,7 @@ import {
   logOut,
   refreshUser,
   changeAvatar,
+  changeName,
 } from 'redux/actions/users.actions';
 
 const initialState = {
@@ -25,7 +26,8 @@ const usersSlice = createSlice({
         state.name = action.payload.user.name;
         state.email = action.payload.user.email;
         state.token = action.payload.token;
-        state.avatar = action.payload.avatar;
+        state.avatar =
+          'https://soyummy-h1wx.onrender.com/avatars/basic_avatar.png';
         state.isLoggedIn = true;
       })
       .addCase(register.rejected, state => {
@@ -64,6 +66,10 @@ const usersSlice = createSlice({
       .addCase(changeAvatar.fulfilled, (state, action) => {
         const avatar = action.payload.data.updatedUser.avatar;
         state.avatar = avatar;
+      })
+      .addCase(changeName.fulfilled, (state, action) => {
+        const name = action.payload.data.name;
+        state.name = name;
       });
   },
 });

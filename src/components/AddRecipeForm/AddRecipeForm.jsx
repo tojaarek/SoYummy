@@ -66,10 +66,6 @@ const AddRecipeForm = () => {
     newRecipe.append('instructions', instructions);
 
     dispatch(addRecipe(newRecipe));
-
-    if (isSuccess) {
-      navigate('/ownRecipes/my');
-    }
   };
 
   return (

@@ -6,10 +6,11 @@ import { ReactComponent as Man } from '../../images/Header/man.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { ReactComponent as Pen } from '../../images/Header/pen.svg';
 import { getAvatar } from 'redux/selectors/users.selectors';
-import { changeAvatar } from 'redux/actions/users.actions';
+import { changeAvatar, changeName } from 'redux/actions/users.actions';
 
 export const HeaderEditModal = ({ onClose }) => {
   const [avatar, setAvatar] = useState('');
+  const [name, setName] = useState('');
   const avatarImage = useSelector(getAvatar);
   const dispatch = useDispatch();
 
@@ -30,11 +31,19 @@ export const HeaderEditModal = ({ onClose }) => {
     setAvatar(file);
   };
 
+  const handleName = event => {
+    const name = event.target.value;
+    setName(name);
+  };
+
   const handleSave = event => {
     event.preventDefault();
     const newAvatar = new FormData();
     newAvatar.append('avatar', avatar);
-    dispatch(changeAvatar(newAvatar));
+    dispatch(changeName({ name: name }));
+    dispatch(changeAvatar(newAvatar)).then(() => {
+      window.location.reload();
+    });
   };
 
   return (
@@ -70,7 +79,10 @@ export const HeaderEditModal = ({ onClose }) => {
                 <AddPhotoIcon className={css.AddPhotoIcon} />
               </label>
               <label className={css.HeaderEditModalNameLabel}>
-                <input className={css.HeaderEditModalNameInput} />
+                <input
+                  className={css.HeaderEditModalNameInput}
+                  onChange={handleName}
+                />
 
                 <Pen className={css.HeaderEditModalPen} />
                 <Man className={css.Man} />

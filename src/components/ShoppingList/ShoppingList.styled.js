@@ -93,6 +93,7 @@ export const Amount = styled.p`
 
 export const Remove = styled(RemoveIcon)`
   margin-right: 28px;
+  cursor: pointer;
   @media only screen and ${devices.tablet} {
     margin-right: 48px;
     width: 20px;

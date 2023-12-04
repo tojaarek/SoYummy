@@ -18,11 +18,10 @@ export const addToFavorites = createAsyncThunk(
     try {
       const response = await axios.post('/favorites/add', body);
       if (response.data) {
-        console.log(response.data);
-        toast.error(
+        toast.success(
           'The recipe has been successfully added to your favorites',
           {
-            position: toast.POSITION.TOP_CENTER,
+            position: toast.POSITION.TOP_RIGHT,
           }
         );
       }
@@ -30,7 +29,7 @@ export const addToFavorites = createAsyncThunk(
     } catch (error) {
       if (error) {
         toast.error('Something went wrong. Please try again.', {
-          position: toast.POSITION.TOP_CENTER,
+          position: toast.POSITION.TOP_RIGHT,
         });
       }
       console.log(error, 'error');
