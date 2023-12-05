@@ -23,6 +23,7 @@ export const Container = styled.div`
   position: absolute;
   z-index: 999;
   left: 0;
+  top: 0;
   bottom: 0;
   @media (min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
@@ -46,7 +47,7 @@ export const List = styled.ul`
   }
 `;
 
-export const Item = styled.ul`
+export const Item = styled.li`
   &:not(:last-child) {
     margin-bottom: 32px;
   }

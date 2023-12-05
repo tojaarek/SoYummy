@@ -15,22 +15,32 @@ const MobileMenu = ({ closeMenu }) => {
       <CloseIcon onClick={closeMenu} />
       <List>
         <Item>
-          <NavLink to={'/categories'}>Categories</NavLink>
+          <NavLink to={'/main/categories'} onClick={closeMenu}>
+            Categories
+          </NavLink>
         </Item>
         <Item>
-          <NavLink to={'/ownRecipes/add'}>Add recipe</NavLink>
+          <NavLink to={'/main/ownRecipes/add'} onClick={closeMenu}>
+            Add recipe
+          </NavLink>
         </Item>
         <Item>
-          <NavLink>My recipes</NavLink>
+          <NavLink to={'/main/ownRecipes/my'} onClick={closeMenu}>
+            My recipes
+          </NavLink>
         </Item>
         <Item>
-          <NavLink>Favorites</NavLink>
+          <NavLink to={'/main/favorites'} onClick={closeMenu}>
+            Favorites
+          </NavLink>
         </Item>
         <Item>
-          <NavLink>Shopping list</NavLink>
+          <NavLink to={'/main/shopping-list'} onClick={closeMenu}>
+            Shopping list
+          </NavLink>
         </Item>
         <Item>
-          <NavLink>
+          <NavLink to={'/main/search'} onClick={closeMenu}>
             <Search /> Search
           </NavLink>
         </Item>
