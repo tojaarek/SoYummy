@@ -14,7 +14,7 @@ your own recipes to save them for the future.
 
 ## Backend
 
-Backend id deployed using Render free instance. Cron function is responsable for keeping server awake.
+Backend is deployed using Render free instance. Cron function is responsable for keeping the server awake.
 
 Repo: (https://github.com/tojaarek/soyummy-backend)
 
