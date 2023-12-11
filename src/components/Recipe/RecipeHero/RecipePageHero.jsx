@@ -2,6 +2,7 @@ import css from './RecipePageHero.module.css';
 import { ReactComponent as Clock } from '../../../images/RecepiePage/clock.svg';
 import { useDispatch } from 'react-redux';
 import { addToFavorites } from 'redux/actions/favorites.actions';
+import formatTime from 'const/formatTime';
 
 export default function RecipePageHero({ description, title, time, _id }) {
   const dispatch = useDispatch();
@@ -9,6 +10,8 @@ export default function RecipePageHero({ description, title, time, _id }) {
   const handleAddToFavorites = () => {
     dispatch(addToFavorites({ recipeId: _id }));
   };
+
+  const formattedTime = time !== undefined ? formatTime(time) : '';
 
   return (
     <div className={css.recepieDiv}>
@@ -20,7 +23,7 @@ export default function RecipePageHero({ description, title, time, _id }) {
       </button>
       <div className={css.recepieTitleClockAndTime}>
         <Clock className={css.recepieTitleClock} />
-        <span className={css.recepieTitleTime}>{time} min</span>
+        <span className={css.recepieTitleTime}>{formattedTime}</span>
       </div>
     </div>
   );

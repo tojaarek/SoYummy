@@ -23,7 +23,7 @@ export const RecipesPage = () => {
   return (
     <>
       <Helmet>
-        <title>SoYummy | {recipe.title}</title>
+        <title>SoYummy | Recipe</title>
       </Helmet>
       <div className={css.General}>
         <div className={css.RecipesPageBackgroundImange}>

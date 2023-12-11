@@ -63,7 +63,7 @@ export const deleteFromFavorites = createAsyncThunk(
     try {
       console.log(body);
       const response = await axios.delete('/favorites/delete', { data: body });
-      return response.data;
+      return { recipeId: body.recipeId, responseData: response.data };
     } catch (error) {
       console.log(error, 'error');
       return thunkAPI.rejectWithValue(error.message);

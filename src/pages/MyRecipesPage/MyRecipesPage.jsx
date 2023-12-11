@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { getUserRecipes } from 'redux/actions/recipes.actions';
 import {
   selectTOwnRecipesTotalPages,
+  selectAddRecipeIsLoading,
   selectOwnRecipesIsDeleting,
 } from 'redux/selectors/recipes.selectors';
 import MyRecipesList from 'components/MyRecipesList/MyRecipesList';
@@ -15,6 +16,7 @@ import { Helmet } from 'react-helmet';
 const MyRecipesPage = () => {
   const totalPages = useSelector(selectTOwnRecipesTotalPages);
   const isDeleting = useSelector(selectOwnRecipesIsDeleting);
+  const isLoading = useSelector(selectAddRecipeIsLoading);
   const [currentPage, setCurrentPage] = useState(1);
   const dispatch = useDispatch();
 
@@ -47,22 +49,28 @@ const MyRecipesPage = () => {
       <Helmet>
         <title>SoYummy | My recipes</title>
       </Helmet>
-      {isDeleting ? (
-        <Loader text="Deleting recipe" />
+      {isLoading ? (
+        <Loader text="Loading..." />
       ) : (
-        <Section>
-          <Container>
-            <MainTitle title="My recipes" />
-            <MyRecipesList />
-            {totalPages > 1 && (
-              <Pagination
-                onPageChange={handlePageChange}
-                page={currentPage}
-                totalPages={totalPages}
-              />
-            )}
-          </Container>
-        </Section>
+        <>
+          {isDeleting ? (
+            <Loader text="Deleting recipe" />
+          ) : (
+            <Section>
+              <Container>
+                <MainTitle title="My recipes" />
+                <MyRecipesList />
+                {totalPages > 1 && (
+                  <Pagination
+                    onPageChange={handlePageChange}
+                    page={currentPage}
+                    totalPages={totalPages}
+                  />
+                )}
+              </Container>
+            </Section>
+          )}
+        </>
       )}
     </>
   );

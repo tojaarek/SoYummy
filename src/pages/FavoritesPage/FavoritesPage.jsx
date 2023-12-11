@@ -7,6 +7,7 @@ import { Loader } from 'components/Loader/Loader';
 import {
   selectFavorites,
   selectFavoritesIsDeleting,
+  selectFavoritesIsLoading,
   selectFavoritesTotalPages,
 } from 'redux/selectors/favorites.selectors';
 import { getUserFavorites } from 'redux/actions/favorites.actions';
@@ -16,6 +17,7 @@ import { Helmet } from 'react-helmet';
 const FavoritesPage = () => {
   const totalPages = useSelector(selectFavoritesTotalPages);
   const isDeleting = useSelector(selectFavoritesIsDeleting);
+  const isLoading = useSelector(selectFavoritesIsLoading);
   // eslint-disable-next-line no-unused-vars
   const favorites = useSelector(selectFavorites);
   const [currentPage, setCurrentPage] = useState(1);
@@ -50,22 +52,28 @@ const FavoritesPage = () => {
       <Helmet>
         <title>SoYummy | Favorites</title>
       </Helmet>
-      {isDeleting ? (
-        <Loader text="Deleting recipe" />
+      {isLoading ? (
+        <Loader text="Loading..." />
       ) : (
-        <Section>
-          <Container>
-            <MainTitle title="Favorites" />
-            <FavoritesList />
-            {totalPages > 1 && (
-              <Pagination
-                onPageChange={handlePageChange}
-                page={currentPage}
-                totalPages={totalPages}
-              />
-            )}
-          </Container>
-        </Section>
+        <>
+          {isDeleting ? (
+            <Loader text="Deleting recipe" />
+          ) : (
+            <Section>
+              <Container>
+                <MainTitle title="Favorites" />
+                <FavoritesList />
+                {totalPages > 1 && (
+                  <Pagination
+                    onPageChange={handlePageChange}
+                    page={currentPage}
+                    totalPages={totalPages}
+                  />
+                )}
+              </Container>
+            </Section>
+          )}
+        </>
       )}
     </>
   );

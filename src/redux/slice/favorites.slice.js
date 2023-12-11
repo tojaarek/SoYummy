@@ -40,7 +40,7 @@ const favoritesSlice = createSlice({
     builder.addCase(deleteFromFavorites.fulfilled, (state, action) => {
       state.isDeleting = false;
       const index = state.recipes.findIndex(
-        recipe => recipe.id === action.payload.id
+        recipe => recipe.id === action.payload.recipeId
       );
       state.recipes.splice(index, 1);
     });

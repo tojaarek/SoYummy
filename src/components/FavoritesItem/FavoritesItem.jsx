@@ -14,6 +14,7 @@ import cutText from 'const/cutText';
 import { useDispatch } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import { deleteFromFavorites } from 'redux/actions/favorites.actions';
+import formatTime from 'const/formatTime';
 
 const FavoritesItem = ({ recipe }) => {
   const dispatch = useDispatch();
@@ -44,7 +45,7 @@ const FavoritesItem = ({ recipe }) => {
           </Delete>
         </TitleWrapper>
         <Description>{cuttedDescription}</Description>
-        <Time>{time}</Time>
+        <Time>{formatTime(time)}</Time>
         <RecipeLink to={`/main/recipe/${id}`}>See recipe</RecipeLink>
       </Wrapper>
     </Item>
