@@ -18,12 +18,9 @@ export const addToFavorites = createAsyncThunk(
     try {
       const response = await axios.post('/favorites/add', body);
       if (response.data) {
-        toast.success(
-          'The recipe has been successfully added to your favorites',
-          {
-            position: toast.POSITION.TOP_RIGHT,
-          }
-        );
+        toast.success('The recipe has been added to favorites', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
       }
       return response.data;
     } catch (error) {
@@ -61,8 +58,12 @@ export const deleteFromFavorites = createAsyncThunk(
     const token = state.users.token;
     setHeader(token);
     try {
-      console.log(body);
       const response = await axios.delete('/favorites/delete', { data: body });
+      if (response) {
+        toast.success('The recipe has been removed from favorites', {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+      }
       return { recipeId: body.recipeId, responseData: response.data };
     } catch (error) {
       console.log(error, 'error');
