@@ -13,6 +13,8 @@ import {
   StyledEmailIcon,
   StyledPasswordIcon,
 } from './RegisterForm.styled';
+import { toast } from 'react-toastify';
+import registerSchema from 'validators/register.validator';
 import { useEffect, useState } from 'react';
 
 const RegisterForm = () => {
@@ -26,18 +28,23 @@ const RegisterForm = () => {
 
   useEffect(() => {}, [isNameValid, isEmailValid, isPasswordValid]);
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
     const form = event.currentTarget;
-    dispatch(
-      register({
-        name: form.elements.name.value,
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
-
-    form.reset();
+    const data = {
+      name: form.elements.name.value,
+      email: form.elements.email.value,
+      password: form.elements.password.value,
+    };
+    try {
+      await registerSchema.validate(data, { abortEarly: false });
+      dispatch(register(data));
+      form.reset();
+    } catch (validationError) {
+      toast.error(validationError.errors.join(', '), {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
   };
 
   const verifyName = event => {
@@ -77,10 +84,10 @@ const RegisterForm = () => {
     if (value.length === 0) {
       setIsPasswordValid('false');
       setPasswordNotice('Password is required');
-    } else if (value.lenght < 6) {
+    } else if (value.length < 6) {
       setIsPasswordValid('false');
       setPasswordNotice('Minimum 6 characters');
-    } else if (value.lenght > 60) {
+    } else if (value.length > 60) {
       setIsPasswordValid('false');
       setPasswordNotice('Maximum 60 characters');
     } else if (!/[A-Z]/.test(value) || !/\d/.test(value)) {

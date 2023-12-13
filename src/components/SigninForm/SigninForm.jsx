@@ -10,20 +10,28 @@ import {
   Hyperlink,
 } from './SigninForm.styled';
 import { useDispatch } from 'react-redux';
+import loginSchema from 'validators/signin.validator';
+import { toast } from 'react-toastify';
 import { signIn } from 'redux/actions/users.actions';
 
 const SigninForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
     const form = event.currentTarget;
-    dispatch(
-      signIn({
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
+    const data = {
+      email: form.elements.email.value,
+      password: form.elements.password.value,
+    };
+    try {
+      await loginSchema.validate(data);
+      dispatch(signIn(data));
+    } catch (validationError) {
+      toast.error(validationError.errors.join(', '), {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
 
     form.reset();
   };
@@ -34,11 +42,16 @@ const SigninForm = () => {
           <FormHeadline id="signinForm-head">Sign in</FormHeadline>
           <ul>
             <InputWrapper>
-              <Input type="email" placeholder="Email" name="email" />
+              <Input type="email" placeholder="Email" name="email" required />
               <StyledEmailIcon />
             </InputWrapper>
             <InputWrapper>
-              <Input type="password" placeholder="Password" name="password" />
+              <Input
+                type="password"
+                placeholder="Password"
+                name="password"
+                required
+              />
               <StyledPasswordIcon />
             </InputWrapper>
           </ul>

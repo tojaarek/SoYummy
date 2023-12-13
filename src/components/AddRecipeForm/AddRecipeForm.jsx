@@ -5,6 +5,8 @@ import RecipePreparationFields from 'components/RecipePreparationFields/RecipePr
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { addRecipe } from 'redux/actions/recipes.actions';
+import { toast } from 'react-toastify';
+import addRecipeSchema from 'validators/addRecipe.validator';
 
 const AddRecipeForm = () => {
   const [picture, setPicture] = useState('');
@@ -44,13 +46,23 @@ const AddRecipeForm = () => {
     setInstructions(value);
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault();
     let array = [];
 
     ingredients.forEach(({ inputData }) => {
       array.push(inputData);
     });
+
+    const dataToValidate = {
+      title,
+      description,
+      category,
+      time,
+      thumb: picture,
+      ingredients: array,
+      instructions,
+    };
 
     const newRecipe = new FormData();
     newRecipe.append('title', title);
@@ -60,8 +72,14 @@ const AddRecipeForm = () => {
     newRecipe.append('thumb', picture);
     newRecipe.append('ingredients', JSON.stringify(array));
     newRecipe.append('instructions', instructions);
-
-    dispatch(addRecipe(newRecipe));
+    try {
+      await addRecipeSchema.validate(dataToValidate, { abortEarly: false });
+      dispatch(addRecipe(newRecipe));
+    } catch (validationError) {
+      toast.error(validationError.errors.join(', '), {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
   };
 
   return (

@@ -3,13 +3,7 @@ import css from './RecipePreparationFields.module.css';
 const RecipePreparationFields = ({ preparation }) => {
   const handlePreparation = event => {
     const value = event.target.value;
-    if (value.includes('\n')) {
-      const breaks = value.split('\n');
-      const filter = breaks.filter(breaks => breaks.trim() !== '');
-      preparation(filter);
-    } else {
-      preparation(value);
-    }
+    preparation(value);
   };
 
   return (

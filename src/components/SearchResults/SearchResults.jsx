@@ -23,7 +23,7 @@ export const SearchResults = ({ results }) => {
         results.map(recipe => (
           <RecipeBox
             key={recipe.id}
-            onClick={() => navigate('/recipe/' + recipe.id)}
+            onClick={() => navigate('/main/recipe/' + recipe.id)}
           >
             <Title>{cutText(recipe.title, 26)}</Title>
             <Image src={recipe.thumb} alt={recipe.title} />
